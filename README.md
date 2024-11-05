@@ -1,4 +1,4 @@
-# My Fancy Bootstrap Website
+# TheAwesomeAJ's Website
 
 Welcome to my fancy website built with **Bootstrap** and hosted on **GitHub Pages**! This site was created to showcase my projects, share information about myself, and provide a way to get in touch.
 
