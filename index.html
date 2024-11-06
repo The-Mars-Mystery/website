@@ -11,13 +11,13 @@
 
     <!-- Navbar -->
     <nav class="bg-gray-800 py-4">
-        <div class="container mx-auto flex items-center justify-between px-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
             <a class="text-2xl font-bold text-orange-500" href="#">The Mars Mysteries</a>
-            <div class="space-x-4">
-                <a href="#about" class="text-gray-200 hover:text-orange-500">About</a>
-                <a href="#book" class="text-gray-200 hover:text-orange-500">The Book</a>
-                <a href="#reviews" class="text-gray-200 hover:text-orange-500">Reviews</a>
-                <a href="#contact" class="text-gray-200 hover:text-orange-500">Contact</a>
+            <div class="w-full lg:w-auto mt-2 lg:mt-0 space-x-4 lg:flex lg:items-center lg:space-x-6">
+                <a href="#about" class="block lg:inline-block text-gray-200 hover:text-orange-500">About</a>
+                <a href="#book" class="block lg:inline-block text-gray-200 hover:text-orange-500">The Book</a>
+                <a href="#reviews" class="block lg:inline-block text-gray-200 hover:text-orange-500">Reviews</a>
+                <a href="#contact" class="block lg:inline-block text-gray-200 hover:text-orange-500">Contact</a>
             </div>
         </div>
     </nav>
@@ -29,46 +29,46 @@
 
     <!-- About Section -->
     <section id="about" class="container mx-auto mt-10 px-4">
-        <h2 class="text-3xl font-bold text-orange-500 mb-4">About the Author</h2>
-        <p>Welcome! I'm AJ, the author of <em>The Mars Mysteries</em>, a thrilling journey that takes readers into the depths of space exploration, ancient civilizations, and mysteries that lie beyond our planet.</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-500 mb-4">About the Author</h2>
+        <p class="text-sm md:text-base">Welcome! I'm AJ, the author of <em>The Mars Mysteries</em>, a thrilling journey that takes readers into the depths of space exploration, ancient civilizations, and mysteries that lie beyond our planet.</p>
     </section>
 
     <!-- Book Section -->
     <section id="book" class="container mx-auto mt-10 px-4">
-        <h2 class="text-3xl font-bold text-orange-500 mb-4">The Mars Mysteries</h2>
-        <p><em>The Mars Mysteries</em> dives into an ancient enigma hidden on Mars and follows a team of explorers as they uncover secrets that could alter humanity's understanding of the universe. It’s a story of suspense, discovery, and cosmic wonder.</p>
-        <div class="bg-gray-800 p-6 rounded-lg mt-6">
-            <h5 class="text-xl font-semibold text-orange-500">Book Excerpt</h5>
-            <p class="mt-2">"As they descended into the hidden valley of Mars, the team knew they were not alone. Shadows of civilizations long gone haunted the walls, leaving cryptic messages etched in the red dust."</p>
-            <a href="#" class="mt-4 inline-block bg-orange-500 hover:bg-orange-600 text-gray-100 py-2 px-4 rounded">Purchase the Book</a>
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-500 mb-4">The Mars Mysteries</h2>
+        <p class="text-sm md:text-base"><em>The Mars Mysteries</em> dives into an ancient enigma hidden on Mars and follows a team of explorers as they uncover secrets that could alter humanity's understanding of the universe. It’s a story of suspense, discovery, and cosmic wonder.</p>
+        <div class="bg-gray-800 p-4 md:p-6 rounded-lg mt-6">
+            <h5 class="text-lg md:text-xl font-semibold text-orange-500">Book Excerpt</h5>
+            <p class="text-sm md:text-base mt-2">"As they descended into the hidden valley of Mars, the team knew they were not alone. Shadows of civilizations long gone haunted the walls, leaving cryptic messages etched in the red dust."</p>
+            <a href="#" class="mt-4 inline-block bg-orange-500 hover:bg-orange-600 text-gray-100 py-2 px-4 rounded text-sm md:text-base">Purchase the Book</a>
         </div>
     </section>
 
     <!-- Reviews Section -->
     <section id="reviews" class="container mx-auto mt-10 px-4">
-        <h2 class="text-3xl font-bold text-orange-500 mb-4">Reader Reviews</h2>
-        <div class="bg-gray-800 p-6 rounded-lg mt-6">
-            <p>"A mind-blowing journey that left me questioning everything I thought I knew about Mars." - Reader One</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-500 mb-4">Reader Reviews</h2>
+        <div class="bg-gray-800 p-4 md:p-6 rounded-lg mt-6">
+            <p class="text-sm md:text-base">"A mind-blowing journey that left me questioning everything I thought I knew about Mars." - Reader One</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg mt-6">
-            <p>"If you’re into science fiction with a side of mystery, <em>The Mars Mysteries</em> is a must-read!" - Reader Two</p>
+        <div class="bg-gray-800 p-4 md:p-6 rounded-lg mt-6">
+            <p class="text-sm md:text-base">"If you’re into science fiction with a side of mystery, <em>The Mars Mysteries</em> is a must-read!" - Reader Two</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container mx-auto mt-10 px-4">
-        <h2 class="text-3xl font-bold text-orange-500 mb-4">Contact the Author</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-500 mb-4">Contact the Author</h2>
         <form class="space-y-4">
             <div>
-                <label for="name" class="block text-gray-300">Name</label>
+                <label for="name" class="block text-sm text-gray-300">Name</label>
                 <input type="text" id="name" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="Your Name">
             </div>
             <div>
-                <label for="email" class="block text-gray-300">Email</label>
+                <label for="email" class="block text-sm text-gray-300">Email</label>
                 <input type="email" id="email" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="name@example.com">
             </div>
             <div>
-                <label for="message" class="block text-gray-300">Message</label>
+                <label for="message" class="block text-sm text-gray-300">Message</label>
                 <textarea id="message" rows="4" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="Your message to the author"></textarea>
             </div>
             <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-gray-100 py-2 px-4 rounded">Send Message</button>
