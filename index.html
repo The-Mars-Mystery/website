@@ -4,126 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Mars Mysteries</title>
-    <!-- Link to Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link to Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Dark Theme Styling */
-        body {
-            background-color: #121212;
-            color: #f0f0f0;
-        }
-        .navbar {
-            background-color: #1e1e1e;
-        }
-        .navbar-brand, .nav-link {
-            color: #ffa726 !important;
-        }
-        .section-title {
-            color: #ff9800;
-        }
-        .card {
-            background-color: #1e1e1e;
-            border: none;
-            color: #f0f0f0; /* Ensures readability in dark mode */
-        }
-        .btn-primary {
-            background-color: #ff9800;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-color: #fb8c00;
-        }
-        /* Ensure text readability in cards and forms */
-        .card-title, .card-text, label {
-            color: #f0f0f0;
-        }
-    </style>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">The Mars Mysteries</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#book">The Book</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reviews">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+    <nav class="bg-gray-800 py-4">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a class="text-2xl font-bold text-orange-500" href="#">The Mars Mysteries</a>
+            <div class="space-x-4">
+                <a href="#about" class="text-gray-200 hover:text-orange-500">About</a>
+                <a href="#book" class="text-gray-200 hover:text-orange-500">The Book</a>
+                <a href="#reviews" class="text-gray-200 hover:text-orange-500">Reviews</a>
+                <a href="#contact" class="text-gray-200 hover:text-orange-500">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="_assets/banner.jpg" alt="Mars Mystery Banner" class="w-full max-h-80 object-cover">
+    </div>
+
     <!-- About Section -->
-    <section id="about" class="container mt-5">
-        <h2 class="section-title">About the Author</h2>
+    <section id="about" class="container mx-auto mt-10 px-4">
+        <h2 class="text-3xl font-bold text-orange-500 mb-4">About the Author</h2>
         <p>Welcome! I'm AJ, the author of <em>The Mars Mysteries</em>, a thrilling journey that takes readers into the depths of space exploration, ancient civilizations, and mysteries that lie beyond our planet.</p>
     </section>
 
     <!-- Book Section -->
-    <section id="book" class="container mt-5">
-        <h2 class="section-title">The Mars Mysteries</h2>
+    <section id="book" class="container mx-auto mt-10 px-4">
+        <h2 class="text-3xl font-bold text-orange-500 mb-4">The Mars Mysteries</h2>
         <p><em>The Mars Mysteries</em> dives into an ancient enigma hidden on Mars and follows a team of explorers as they uncover secrets that could alter humanity's understanding of the universe. It’s a story of suspense, discovery, and cosmic wonder.</p>
-        <div class="card mt-3">
-            <div class="card-body">
-                <h5 class="card-title">Book Excerpt</h5>
-                <p class="card-text">"As they descended into the hidden valley of Mars, the team knew they were not alone. Shadows of civilizations long gone haunted the walls, leaving cryptic messages etched in the red dust."</p>
-                <a href="#" class="btn btn-primary">Purchase the Book</a>
-            </div>
+        <div class="bg-gray-800 p-6 rounded-lg mt-6">
+            <h5 class="text-xl font-semibold text-orange-500">Book Excerpt</h5>
+            <p class="mt-2">"As they descended into the hidden valley of Mars, the team knew they were not alone. Shadows of civilizations long gone haunted the walls, leaving cryptic messages etched in the red dust."</p>
+            <a href="#" class="mt-4 inline-block bg-orange-500 hover:bg-orange-600 text-gray-100 py-2 px-4 rounded">Purchase the Book</a>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="container mt-5">
-        <h2 class="section-title">Reader Reviews</h2>
-        <div class="card mt-3">
-            <div class="card-body">
-                <p class="card-text">"A mind-blowing journey that left me questioning everything I thought I knew about Mars." - Reader One</p>
-            </div>
+    <section id="reviews" class="container mx-auto mt-10 px-4">
+        <h2 class="text-3xl font-bold text-orange-500 mb-4">Reader Reviews</h2>
+        <div class="bg-gray-800 p-6 rounded-lg mt-6">
+            <p>"A mind-blowing journey that left me questioning everything I thought I knew about Mars." - Reader One</p>
         </div>
-        <div class="card mt-3">
-            <div class="card-body">
-                <p class="card-text">"If you’re into science fiction with a side of mystery, <em>The Mars Mysteries</em> is a must-read!" - Reader Two</p>
-            </div>
+        <div class="bg-gray-800 p-6 rounded-lg mt-6">
+            <p>"If you’re into science fiction with a side of mystery, <em>The Mars Mysteries</em> is a must-read!" - Reader Two</p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container mt-5">
-        <h2 class="section-title">Contact the Author</h2>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Your Name">
+    <section id="contact" class="container mx-auto mt-10 px-4">
+        <h2 class="text-3xl font-bold text-orange-500 mb-4">Contact the Author</h2>
+        <form class="space-y-4">
+            <div>
+                <label for="name" class="block text-gray-300">Name</label>
+                <input type="text" id="name" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="Your Name">
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <div>
+                <label for="email" class="block text-gray-300">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="name@example.com">
             </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="3" placeholder="Your message to the author"></textarea>
+            <div>
+                <label for="message" class="block text-gray-300">Message</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 rounded bg-gray-700 text-gray-100 border border-gray-600" placeholder="Your message to the author"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-gray-100 py-2 px-4 rounded">Send Message</button>
         </form>
     </section>
 
-    <!-- Link to Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
