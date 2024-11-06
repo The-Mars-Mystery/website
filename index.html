@@ -26,6 +26,7 @@
         .card {
             background-color: #1e1e1e;
             border: none;
+            color: #f0f0f0; /* Ensures readability in dark mode */
         }
         .btn-primary {
             background-color: #ff9800;
@@ -34,6 +35,10 @@
         .btn-primary:hover {
             background-color: #fb8c00;
         }
+        /* Ensure text readability in cards and forms */
+        .card-title, .card-text, label {
+            color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +46,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">The Mars Mystery</a>
+            <a class="navbar-brand" href="#">The Mars Mysteries</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,13 +72,13 @@
     <!-- About Section -->
     <section id="about" class="container mt-5">
         <h2 class="section-title">About the Author</h2>
-        <p>Welcome! I'm AJ, the author of *The Mars Mystery*, a thrilling journey that takes readers into the depths of space exploration, ancient civilizations, and mysteries that lie beyond our planet.</p>
+        <p>Welcome! I'm AJ, the author of <em>The Mars Mysteries</em>, a thrilling journey that takes readers into the depths of space exploration, ancient civilizations, and mysteries that lie beyond our planet.</p>
     </section>
 
     <!-- Book Section -->
     <section id="book" class="container mt-5">
-        <h2 class="section-title">The Mars Mystery</h2>
-        <p>*The Mars Mystery* dives into an ancient enigma hidden on Mars and follows a team of explorers as they uncover secrets that could alter humanity's understanding of the universe. It’s a story of suspense, discovery, and cosmic wonder.</p>
+        <h2 class="section-title">The Mars Mysteries</h2>
+        <p><em>The Mars Mysteries</em> dives into an ancient enigma hidden on Mars and follows a team of explorers as they uncover secrets that could alter humanity's understanding of the universe. It’s a story of suspense, discovery, and cosmic wonder.</p>
         <div class="card mt-3">
             <div class="card-body">
                 <h5 class="card-title">Book Excerpt</h5>
@@ -93,7 +98,7 @@
         </div>
         <div class="card mt-3">
             <div class="card-body">
-                <p class="card-text">"If you’re into science fiction with a side of mystery, *The Mars Mystery* is a must-read!" - Reader Two</p>
+                <p class="card-text">"If you’re into science fiction with a side of mystery, <em>The Mars Mysteries</em> is a must-read!" - Reader Two</p>
             </div>
         </div>
     </section>
