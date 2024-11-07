@@ -32,7 +32,7 @@
 
     <!-- Banner Section -->
     <div class="banner">
-        <img src="mars-banner.jpeg" alt="Mars Mystery Banner" class="w-full max-h-80 object-cover fade-in">
+        <img src="_assets/mars-banner.jpeg" alt="Mars Mystery Banner" class="w-full max-h-80 object-cover fade-in">
     </div>
 
     <!-- About Section -->
@@ -88,6 +88,23 @@
         menuToggle.addEventListener('click', () => {
             menu.classList.toggle('hidden');
             menu.classList.toggle('scale-y-100'); // Adds a slide-down effect
+        });
+
+        // Scroll-triggered animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            function handleScroll() {
+                fadeElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        element.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", handleScroll);
+            handleScroll(); // Initial check
         });
     </script>
 </body>
