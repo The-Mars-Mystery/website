@@ -1,18 +1,69 @@
-/* Custom keyframe for fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* styles.css */
+
+/* Basic Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
 }
 
-/* Initial state before scrolling */
+/* Fade-In Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
-
-/* Add 'visible' class to trigger the animation */
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Navbar Hover Effect */
+nav a:hover {
+    color: #FF6900;
+    transition: color 0.3s ease;
+}
+
+/* Banner Image Styling */
+.banner img {
+    border-bottom: 4px solid #FF6900;
+}
+
+/* Header Styling */
+h2 {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #FF6900;
+}
+
+/* Footer Styling */
+footer p {
+    color: #888;
+    transition: color 0.3s;
+}
+footer p:hover {
+    color: #FF6900;
+}
+
+/* Button Styling */
+[data-fillout-button-text] {
+    color: #FFF;
+    background-color: #FF6900;
+    border: 1px solid #FF6900;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+[data-fillout-button-text]:hover {
+    background-color: #ff5500;
+    color: #FFF;
+}
+
+/* Mobile Menu Transition */
+#menu-toggle {
+    transition: transform 0.3s;
+}
+#menu-toggle:hover {
+    transform: rotate(90deg);
 }
