@@ -13,63 +13,74 @@
     <div class="container mx-auto my-10 px-4 max-w-md">
         <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Set Up Your Account</h1>
         <form id="setup-form" class="bg-gray-900 p-6 rounded-lg shadow-lg">
-            <div class="mb-4">
-                <label for="displayName" class="block text-sm font-bold mb-2">Display Name</label>
-                <input type="text" id="displayName" class="w-full p-3 text-gray-900 rounded" placeholder="Enter your display name" required>
-            </div>
-            <div class="mb-4">
-                <label for="bio" class="block text-sm font-bold mb-2">Bio</label>
-                <textarea id="bio" class="w-full p-3 text-gray-900 rounded" placeholder="Tell us a bit about yourself" required></textarea>
-            </div>
-            <button type="submit" class="w-full bg-orange-600 text-gray-100 py-3 rounded-lg font-bold hover:bg-orange-700 transition duration-300">
-                Complete Setup
-            </button>
+            <label class="block text-gray-100 mb-2">Display Name:</label>
+            <input type="text" id="display-name" class="w-full p-2 mb-4 text-gray-800" required>
+
+            <label class="block text-gray-100 mb-2">Bio:</label>
+            <textarea id="bio" class="w-full p-2 mb-4 text-gray-800" required></textarea>
+
+            <button type="submit" class="w-full bg-orange-600 text-white p-2 rounded">Save</button>
         </form>
     </div>
 
-    <!-- Firebase CDN scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <!-- Firebase Configuration and JavaScript -->
+    <script type="module">
+        // Import the Firebase SDKs needed
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
-    <!-- Firebase Initialization -->
-    <script>
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-            authDomain: "techforgeguild.firebaseapp.com",
-            projectId: "techforgeguild",
-            storageBucket: "techforgeguild.firebasestorage.app",
-            messagingSenderId: "361603237143",
-            appId: "1:361603237143:web:ea57807170fd4ff0006352",
-            measurementId: "G-PYWLKG8W2P"
+          authDomain: "techforgeguild.firebaseapp.com",
+          projectId: "techforgeguild",
+          storageBucket: "techforgeguild.firebasestorage.app",
+          messagingSenderId: "361603237143",
+          appId: "1:361603237143:web:ea57807170fd4ff0006352",
+          measurementId: "G-PYWLKG8W2P"
         };
-        firebase.initializeApp(firebaseConfig);
 
-        const auth = firebase.auth();
-        const db = firebase.firestore();
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
-        // Handle Setup Form Submission
-        document.getElementById('setup-form').addEventListener('submit', async (e) => {
+        // Wait for the user to be authenticated
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("User is authenticated:", user.uid);
+            } else {
+                alert("You need to log in first.");
+                window.location.href = "/login.html"; // Redirect to login if not logged in
+            }
+        });
+
+        // Form submission handler
+        document.getElementById("setup-form").addEventListener("submit", async (e) => {
             e.preventDefault();
-            const displayName = document.getElementById('displayName').value;
-            const bio = document.getElementById('bio').value;
+
+            // Get input values
+            const displayName = document.getElementById("display-name").value;
+            const bio = document.getElementById("bio").value;
 
             try {
                 const user = auth.currentUser;
                 if (user) {
-                    await db.collection('users').doc(user.uid).set({
+                    // Save data to Firestore under the user's UID
+                    await setDoc(doc(db, "users", user.uid), {
                         displayName: displayName,
                         bio: bio
                     });
-                    alert('Setup completed successfully!');
+                    alert("Setup completed successfully!");
                     window.location.href = "/"; // Redirect to homepage after setup
                 } else {
-                    alert('You need to log in first.');
+                    alert("You need to log in first.");
                     window.location.href = "/login.html"; // Redirect to login if not logged in
                 }
             } catch (error) {
-                console.error("Error during setup:", error);
-                alert(error.message);
+                console.error("Error saving data:", error);
+                alert(`Error saving data: ${error.message}`);
             }
         });
     </script>
