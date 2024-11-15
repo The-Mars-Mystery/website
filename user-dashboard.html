@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | The Mars Mysteries</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 py-4">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a class="text-2xl font-bold text-orange-600" href="/website/">The Mars Mysteries</a>
+            <div class="space-x-4">
+                <a href="/website/" class="text-gray-300 hover:text-orange-600">Home</a>
+                <a href="/website/user-dashboard.html" class="text-gray-300 hover:text-orange-600">User Dashboard</a>
+                <button id="logout-button" class="text-gray-300 hover:text-orange-600">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Content -->
+    <section class="container mx-auto mt-10 px-4">
+        <h1 class="text-3xl font-bold text-orange-600 mb-6">User Dashboard</h1>
+        <p class="text-sm md:text-base">
+            Welcome! Here you can manage your account, view saved articles, and interact with support.
+        </p>
+        
+        <div class="mt-6 space-y-4">
+            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">View Saved Articles</button>
+            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Chat with Support</button>
+            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Edit Profile</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-100 py-8 mt-10">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2024 Austin Rice. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+        const auth = getAuth();
+
+        document.getElementById("logout-button").addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                alert("You have been logged out.");
+                window.location.href = "/website/login.html";
+            } catch (error) {
+                console.error("Error during logout:", error.message);
+                alert("Logout failed: " + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
