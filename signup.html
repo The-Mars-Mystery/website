@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup | The Mars Mysteries</title>
+    <title>Sign Up | The Mars Mysteries</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-black text-gray-100">
 
-    <!-- Setup Form Section -->
+    <!-- Sign Up Form Section -->
     <div class="container mx-auto my-10 px-4 max-w-md">
-        <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Set Up Your Account</h1>
-        <form id="setup-form" class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Create Your Account</h1>
+        <form id="signup-form" class="bg-gray-900 p-6 rounded-lg shadow-lg">
+            <label class="block text-gray-100 mb-2">Email:</label>
+            <input type="email" id="email" class="w-full p-2 mb-4 text-gray-800" required>
+
+            <label class="block text-gray-100 mb-2">Password:</label>
+            <input type="password" id="password" class="w-full p-2 mb-4 text-gray-800" required>
+
             <label class="block text-gray-100 mb-2">Display Name:</label>
             <input type="text" id="display-name" class="w-full p-2 mb-4 text-gray-800" required>
 
             <label class="block text-gray-100 mb-2">Bio:</label>
             <textarea id="bio" class="w-full p-2 mb-4 text-gray-800" required></textarea>
 
-            <button type="submit" class="w-full bg-orange-600 text-white p-2 rounded">Save</button>
+            <button type="submit" class="w-full bg-orange-600 text-white p-2 rounded">Create Account</button>
         </form>
+        <p id="success-message" class="text-center text-green-500 mt-4" style="display: none;">Account created successfully! Redirecting to login...</p>
     </div>
 
     <!-- Firebase Configuration and JavaScript -->
     <script type="module">
-        // Import the Firebase SDKs needed
+        // Import Firebase SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
         import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-          authDomain: "techforgeguild.firebaseapp.com",
-          projectId: "techforgeguild",
-          storageBucket: "techforgeguild.firebasestorage.app",
-          messagingSenderId: "361603237143",
-          appId: "1:361603237143:web:ea57807170fd4ff0006352",
-          measurementId: "G-PYWLKG8W2P"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
 
         // Initialize Firebase
@@ -46,41 +52,41 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // Wait for the user to be authenticated
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log("User is authenticated:", user.uid);
-            } else {
-                alert("You need to log in first.");
-                window.location.href = "/login.html"; // Redirect to login if not logged in
-            }
-        });
-
-        // Form submission handler
-        document.getElementById("setup-form").addEventListener("submit", async (e) => {
+        // Form submission handler for account creation
+        document.getElementById("signup-form").addEventListener("submit", async (e) => {
             e.preventDefault();
 
             // Get input values
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
             const displayName = document.getElementById("display-name").value;
             const bio = document.getElementById("bio").value;
 
             try {
-                const user = auth.currentUser;
-                if (user) {
-                    // Save data to Firestore under the user's UID
-                    await setDoc(doc(db, "users", user.uid), {
-                        displayName: displayName,
-                        bio: bio
-                    });
-                    alert("Setup completed successfully!");
-                    window.location.href = "/"; // Redirect to homepage after setup
-                } else {
-                    alert("You need to log in first.");
-                    window.location.href = "/login.html"; // Redirect to login if not logged in
-                }
+                // Create a new user with email and password
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Update the user's profile with the display name
+                await updateProfile(user, {
+                    displayName: displayName
+                });
+
+                // Save additional user info to Firestore under the user's UID
+                await setDoc(doc(db, "users", user.uid), {
+                    displayName: displayName,
+                    bio: bio,
+                    email: email
+                });
+
+                // Display success message and redirect to login page after a delay
+                document.getElementById("success-message").style.display = "block";
+                setTimeout(() => {
+                    window.location.href = "/login.html"; // Redirect to login page
+                }, 2000);
             } catch (error) {
-                console.error("Error saving data:", error);
-                alert(`Error saving data: ${error.message}`);
+                console.error("Error creating account:", error);
+                alert(`Error creating account: ${error.message}`);
             }
         });
     </script>
