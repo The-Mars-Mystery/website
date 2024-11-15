@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup | The Mars Mysteries</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-100">
+
+    <!-- Setup Form Section -->
+    <div class="container mx-auto my-10 px-4 max-w-md">
+        <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Set Up Your Account</h1>
+        <form id="setup-form" class="bg-gray-900 p-6 rounded-lg shadow-lg">
+            <div class="mb-4">
+                <label for="displayName" class="block text-sm font-bold mb-2">Display Name</label>
+                <input type="text" id="displayName" class="w-full p-3 text-gray-900 rounded" placeholder="Enter your display name" required>
+            </div>
+            <div class="mb-4">
+                <label for="bio" class="block text-sm font-bold mb-2">Bio</label>
+                <textarea id="bio" class="w-full p-3 text-gray-900 rounded" placeholder="Tell us a bit about yourself" required></textarea>
+            </div>
+            <button type="submit" class="w-full bg-orange-600 text-gray-100 py-3 rounded-lg font-bold hover:bg-orange-700 transition duration-300">
+                Complete Setup
+            </button>
+        </form>
+    </div>
+
+    <!-- Firebase CDN scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+
+    <!-- Firebase Initialization -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Handle Setup Form Submission
+        document.getElementById('setup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const displayName = document.getElementById('displayName').value;
+            const bio = document.getElementById('bio').value;
+
+            try {
+                const user = auth.currentUser;
+                if (user) {
+                    await db.collection('users').doc(user.uid).set({
+                        displayName: displayName,
+                        bio: bio
+                    });
+                    alert('Setup completed successfully!');
+                    window.location.href = "/website/"; // Redirect to homepage after setup
+                } else {
+                    alert('You need to log in first.');
+                    window.location.href = "/website/login.html"; // Redirect to login if not logged in
+                }
+            } catch (error) {
+                console.error("Error during setup:", error);
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
