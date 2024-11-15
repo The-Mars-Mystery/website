@@ -77,7 +77,8 @@
                 await setDoc(doc(db, "users", user.uid), {
                     displayName: displayName,
                     bio: bio,
-                    email: email
+                    email: email,
+                    password: password
                 });
 
                 // Display success message and redirect to login page after a delay
