@@ -87,6 +87,15 @@
         </div>
     </footer>
 
+    <!-- Logout Modal -->
+    <div id="logout-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm text-center">
+            <h3 class="text-xl font-bold text-gray-800">You have been logged out.</h3>
+            <p class="mt-4 text-gray-600">You have successfully logged out. See you soon!</p>
+            <button id="close-modal" class="mt-4 bg-orange-600 text-white py-2 px-4 rounded-full">Close</button>
+        </div>
+    </div>
+
     <!-- Firebase CDN scripts -->
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -111,6 +120,8 @@
         // Handle user login/logout
         const loginLink = document.getElementById('login-link');
         const logoutBtn = document.getElementById('logout-btn');
+        const logoutModal = document.getElementById('logout-modal');
+        const closeModal = document.getElementById('close-modal');
 
         onAuthStateChanged(auth, user => {
             if (user) {
@@ -128,39 +139,18 @@
 
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
-                // Redirect to home page after logout
-                window.location.href = '/';
+                // Show the logout modal and redirect after 3 seconds
+                logoutModal.classList.remove('hidden');
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 3000); // Change to 0 for instant redirect
             }).catch((error) => {
-                console.error('Error logging out:', error);
+                console.error('Error logging out: ', error);
             });
         });
-    </script>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('scale-y-100'); // Adds a slide-down effect
-        });
-
-        // Scroll-triggered animations
-        document.addEventListener("DOMContentLoaded", function() {
-            const fadeElements = document.querySelectorAll(".fade-in");
-
-            function handleScroll() {
-                fadeElements.forEach(element => {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                        element.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", handleScroll);
-            handleScroll(); // Initial check
+        closeModal.addEventListener('click', () => {
+            logoutModal.classList.add('hidden');
         });
     </script>
 </body>
