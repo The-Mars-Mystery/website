@@ -13,24 +13,23 @@
         <div class="container mx-auto flex items-center justify-between px-4">
             <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
             <div class="space-x-4">
-                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a href="/admin-dashboard.html" class="text-gray-300 hover:text-orange-600">Admin Dashboard</a>
-                <button id="logout-button" class="text-gray-300 hover:text-orange-600">Logout</button>
+                <a id="nav-login" href="/login" class="text-gray-300 hover:text-orange-600">Login</a>
+                <button id="logout-btn" class="hidden text-gray-300 hover:text-orange-600">Logout</button>
             </div>
         </div>
     </nav>
 
-    <!-- Admin Content -->
+    <!-- Admin Dashboard Content -->
     <section class="container mx-auto mt-10 px-4">
         <h1 class="text-3xl font-bold text-orange-600 mb-6">Admin Dashboard</h1>
-        <p class="text-sm md:text-base">
-            Welcome, Admin! Here, you can manage users, view statistics, and handle content updates.
-        </p>
-        
-        <div class="mt-6 space-y-4">
-            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Manage Users</button>
-            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">View Website Stats</button>
-            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Update Content</button>
+        <p>Welcome to the Admin Dashboard! Here you can manage users, view reports, and more.</p>
+        <div class="mt-6">
+            <h2 class="text-2xl text-gray-100">User Management</h2>
+            <p class="text-gray-300">View and manage the users of your site.</p>
+            <!-- Example of Admin-specific content -->
+            <div class="mt-4">
+                <button class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded">View Users</button>
+            </div>
         </div>
     </section>
 
@@ -41,17 +40,51 @@
         </div>
     </footer>
 
+    <!-- Firebase Authentication -->
     <script type="module">
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-        const auth = getAuth();
+        import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 
-        document.getElementById("logout-button").addEventListener("click", async () => {
+        // Firebase configuration (replace with your project's settings)
+        const firebaseConfig = {
+            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
+          authDomain: "techforgeguild.firebaseapp.com",
+          projectId: "techforgeguild",
+          storageBucket: "techforgeguild.firebasestorage.app",
+          messagingSenderId: "361603237143",
+          appId: "1:361603237143:web:ea57807170fd4ff0006352",
+          measurementId: "G-PYWLKG8W2P"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Navbar Updates and Logout
+        const navLogin = document.getElementById('nav-login');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Detect Auth State
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                navLogin.textContent = "My Account";
+                navLogin.href = "/admin-dashboard"; // Always go to Admin Dashboard for Admin
+                logoutBtn.classList.remove('hidden');
+            } else {
+                navLogin.textContent = "Login";
+                navLogin.href = "/login";
+                logoutBtn.classList.add('hidden');
+            }
+        });
+
+        // Logout Functionality
+        logoutBtn.addEventListener('click', async () => {
             try {
                 await signOut(auth);
                 alert("You have been logged out.");
-                window.location.href = "/login.html";
+                window.location.href = "/";
             } catch (error) {
-                console.error("Error during logout:", error.message);
+                console.error("Logout Error:", error.message);
                 alert("Logout failed: " + error.message);
             }
         });
