@@ -13,8 +13,8 @@
         <div class="container mx-auto flex items-center justify-between px-4">
             <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
             <div class="space-x-4">
-                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a href="/login" class="text-gray-300 hover:text-orange-600">Login</a>
+                <a id="nav-login" href="/login" class="text-gray-300 hover:text-orange-600">Login</a>
+                <button id="logout-btn" class="hidden text-gray-300 hover:text-orange-600">Logout</button>
             </div>
         </div>
     </nav>
@@ -35,13 +35,6 @@
             </div>
             <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Login</button>
         </form>
-
-        <!-- Create Account -->
-        <div class="mt-6">
-            <p class="text-sm">Don't have an account? 
-                <a href="/signup" class="text-orange-600 hover:underline">Create one here</a>.
-            </p>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -53,8 +46,7 @@
 
     <!-- Firebase Authentication -->
     <script type="module">
-        // Import Firebase Auth
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 
         // Firebase configuration (replace with your project's settings)
@@ -72,7 +64,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // Handle Login
+        // Login Form Submission
         const loginForm = document.getElementById('login-form');
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -84,6 +76,9 @@
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
+                // Set a cookie for the logged-in user
+                document.cookie = `userEmail=${user.email}; path=/; max-age=3600`;
+
                 // Redirect based on role
                 if (user.email === "austinrice0024@gmail.com") { // Replace with your admin email
                     window.location.href = "/admin-dashboard";
@@ -93,6 +88,41 @@
             } catch (error) {
                 console.error("Login Error:", error.message);
                 alert("Login failed: " + error.message);
+            }
+        });
+
+        // Navbar Updates and Logout
+        const navLogin = document.getElementById('nav-login');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Detect Auth State
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                navLogin.textContent = "My Account";
+                navLogin.href = user.email === "austinrice0024@gmail.com" 
+                    ? "/admin-dashboard" 
+                    : "/user-dashboard";
+                logoutBtn.classList.remove('hidden');
+            } else {
+                navLogin.textContent = "Login";
+                navLogin.href = "/login";
+                logoutBtn.classList.add('hidden');
+            }
+        });
+
+        // Logout Functionality
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+
+                // Clear user cookie
+                document.cookie = "userEmail=; path=/; max-age=0";
+
+                alert("You have been logged out.");
+                window.location.href = "/";
+            } catch (error) {
+                console.error("Logout Error:", error.message);
+                alert("Logout failed: " + error.message);
             }
         });
     </script>
