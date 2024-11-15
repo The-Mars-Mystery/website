@@ -11,10 +11,10 @@
     <!-- Navbar -->
     <nav class="bg-gray-900 py-4">
         <div class="container mx-auto flex items-center justify-between px-4">
-            <a class="text-2xl font-bold text-orange-600" href="/website/">The Mars Mysteries</a>
+            <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
             <div class="space-x-4">
-                <a href="/website/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a href="/website/login.html" class="text-gray-300 hover:text-orange-600">Login</a>
+                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
+                <a href="/login" class="text-gray-300 hover:text-orange-600">Login</a>
             </div>
         </div>
     </nav>
@@ -39,7 +39,7 @@
         <!-- Create Account -->
         <div class="mt-6">
             <p class="text-sm">Don't have an account? 
-                <a href="/website/setup.html" class="text-orange-600 hover:underline">Create one here</a>.
+                <a href="/website/signup" class="text-orange-600 hover:underline">Create one here</a>.
             </p>
         </div>
     </section>
@@ -86,9 +86,9 @@
 
                 // Redirect based on role
                 if (user.email === "admin@example.com") { // Replace with your admin email
-                    window.location.href = "/website/admin-dashboard.html";
+                    window.location.href = "/website/admin-dashboard";
                 } else {
-                    window.location.href = "/website/user-dashboard.html";
+                    window.location.href = "/website/user-dashboard";
                 }
             } catch (error) {
                 console.error("Login Error:", error.message);

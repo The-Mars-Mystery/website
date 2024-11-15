@@ -7,7 +7,7 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open signup.html",
+            "name": "Open signup",
             "file": "c:\\Users\\austi\\Downloads\\Github\\web\\signup.html"
         }
     ]

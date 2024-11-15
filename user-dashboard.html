@@ -14,7 +14,7 @@
             <a class="text-2xl font-bold text-orange-600" href="/website/">The Mars Mysteries</a>
             <div class="space-x-4">
                 <a href="/website/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a href="/website/user-dashboard.html" class="text-gray-300 hover:text-orange-600">User Dashboard</a>
+                <a href="/website/user-dashboard" class="text-gray-300 hover:text-orange-600">User Dashboard</a>
                 <button id="logout-button" class="text-gray-300 hover:text-orange-600">Logout</button>
             </div>
         </div>
@@ -49,7 +49,7 @@
             try {
                 await signOut(auth);
                 alert("You have been logged out.");
-                window.location.href = "/website/login.html";
+                window.location.href = "/website/login";
             } catch (error) {
                 console.error("Error during logout:", error.message);
                 alert("Logout failed: " + error.message);
