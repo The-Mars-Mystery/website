@@ -41,35 +41,6 @@
         <p class="text-sm md:text-base">
             Hello! I’m Austin Rice, a passionate web development enthusiast and author of <em>The Mars Mystery</em>.
         </p>
-        <p class="text-sm md:text-base mt-4">
-            🌍 Based in the USA
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Currently honing my skills in web development, with a focus on creating immersive and interactive online experiences.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            As a student, I am always eager to explore new tools and technologies. My current focus is on building projects with HTML, CSS, JavaScript, and experimenting with frameworks like Tailwind CSS.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Besides coding, I enjoy storytelling and exploring the vast realms of science fiction. My debut novel, <em>The Mars Mystery</em>, merges my love for technology with my passion for the unknown.
-        </p>
-    </section>
-
-    <!-- Book Section -->
-    <section id="book" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold text-orange-600 mb-4">About The Mars Mystery</h2>
-        <p class="text-sm md:text-base">
-            by <strong>Austin Rice</strong>
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            In the harsh, unforgiving landscape of Mars, three scientists—Lucas, Marie, and Allison—embark on the Aurora Nine mission, their sights set on uncovering the mysteries left by their predecessors. As members of the Astronomical Studies and Travel Research Association (A.S.T.R.A.), their mission goes beyond survival; they’re charged with establishing the first habitable base on Mars and uncovering what went wrong on the ill-fated Aurora Eight mission.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            But Mars is more than they bargained for. With each step across the rust-red plains, eerie discoveries hint at untold secrets. Unexplained occurrences and fleeting signals leave them questioning: what really happened to the scientists of Aurora Eight? And are they truly alone on this barren world?
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            <em>The Mars Mystery</em> blends suspense, science fiction, and the thrill of discovery in a journey that asks whether humanity is ready to face what lies beyond our world—and within ourselves.
-        </p>
     </section>
 
     <!-- Footer Section -->
@@ -78,41 +49,33 @@
             <p class="text-sm">
                 &copy; 2024 Austin Rice. All Rights Reserved.
             </p>
-            <p class="text-sm mt-2">
-                Built with GitHub Pages, Hosted on Firebase, developed using HTML, CSS, and Tailwind CSS.
-            </p>
-            <p class="text-sm mt-2">
-                Inspired by the wonders of space and technology.
-            </p>
         </div>
     </footer>
 
-    <!-- Firebase CDN scripts -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-      
-        // Your web app's Firebase configuration
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
+  
+    <script>
+        // Initialize Firebase
         const firebaseConfig = {
-          apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-          authDomain: "techforgeguild.firebaseapp.com",
-          projectId: "techforgeguild",
-          storageBucket: "techforgeguild.firebasestorage.app",
-          messagingSenderId: "361603237143",
-          appId: "1:361603237143:web:ea57807170fd4ff0006352",
-          measurementId: "G-PYWLKG8W2P"
+            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
+            authDomain: "techforgeguild.firebaseapp.com",
+            projectId: "techforgeguild",
+            storageBucket: "techforgeguild.firebasestorage.app",
+            messagingSenderId: "361603237143",
+            appId: "1:361603237143:web:ea57807170fd4ff0006352",
+            measurementId: "G-PYWLKG8W2P"
         };
       
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
       
         // Handle user login/logout
         const loginLink = document.getElementById('login-link');
         const logoutBtn = document.getElementById('logout-btn');
 
-        onAuthStateChanged(auth, user => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 // User is signed in
                 loginLink.textContent = 'My Account';
@@ -127,7 +90,7 @@
         });
 
         logoutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
+            firebase.auth().signOut().then(() => {
                 // Redirect after logout
                 window.location.href = '/';
             }).catch((error) => {
