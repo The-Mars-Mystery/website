@@ -11,10 +11,10 @@
     <!-- Navbar -->
     <nav class="bg-gray-900 py-4">
         <div class="container mx-auto flex items-center justify-between px-4">
-            <a class="text-2xl font-bold text-orange-600" href="/website/">The Mars Mysteries</a>
+            <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
             <div class="space-x-4">
-                <a href="/website/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a href="/website/admin-dashboard.html" class="text-gray-300 hover:text-orange-600">Admin Dashboard</a>
+                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
+                <a href="/admin-dashboard.html" class="text-gray-300 hover:text-orange-600">Admin Dashboard</a>
                 <button id="logout-button" class="text-gray-300 hover:text-orange-600">Logout</button>
             </div>
         </div>
@@ -49,7 +49,7 @@
             try {
                 await signOut(auth);
                 alert("You have been logged out.");
-                window.location.href = "/website/login.html";
+                window.location.href = "/login.html";
             } catch (error) {
                 console.error("Error during logout:", error.message);
                 alert("Logout failed: " + error.message);

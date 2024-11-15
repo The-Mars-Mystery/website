@@ -39,7 +39,7 @@
         <!-- Create Account -->
         <div class="mt-6">
             <p class="text-sm">Don't have an account? 
-                <a href="/website/signup" class="text-orange-600 hover:underline">Create one here</a>.
+                <a href="/signup" class="text-orange-600 hover:underline">Create one here</a>.
             </p>
         </div>
     </section>
@@ -85,10 +85,10 @@
                 const user = userCredential.user;
 
                 // Redirect based on role
-                if (user.email === "admin@example.com") { // Replace with your admin email
-                    window.location.href = "/website/admin-dashboard";
+                if (user.email === "austinrice0024@gmail.com") { // Replace with your admin email
+                    window.location.href = "/admin-dashboard";
                 } else {
-                    window.location.href = "/website/user-dashboard";
+                    window.location.href = "/user-dashboard";
                 }
             } catch (error) {
                 console.error("Login Error:", error.message);
