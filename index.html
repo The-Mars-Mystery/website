@@ -6,29 +6,27 @@
     <title>The TechForge HQ</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for custom animations -->
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure your CSS file is linked -->
     <link rel="icon" href="assets/icon.png" type="image/png">
 </head>
-<body class="bg-[#292a2d] text-[#d49e7a]">
+<body class="bg-gray-800 text-gray-100">
 
     <!-- Navbar -->
-<nav class="bg-[#76655c] py-4">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
-        <a class="text-2xl font-bold text-[#d49e7a]" href="/">The TechForge HQ</a>
-        <!-- Hamburger Icon for Mobile -->
-        <button id="menu-toggle" class="text-[#89a5a3] lg:hidden focus:outline-none focus:text-[#d49e7a]">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-        <!-- Navigation Links with Animation -->
-        <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
-            <a href="/" class="text-[#55676b] hover:text-[#d49e7a]">Home</a>
-            <a id="login-link" href="/login" class="text-[#55676b] hover:text-[#d49e7a]">Log In</a> <!-- Firebase Login -->
-            <button id="logout-btn" class="text-[#55676b] hover:text-[#d49e7a] hidden">Log Out</button> <!-- Firebase Logout -->
+    <nav class="bg-gray-900 py-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
+            <a class="text-2xl font-bold text-orange-600" href="/">The TechForge HQ</a>
+            <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-orange-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
+                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
+                <a id="login-link" href="/login" class="text-gray-300 hover:text-orange-600">Log In</a>
+                <button id="logout-btn" class="text-gray-300 hover:text-orange-600 hidden">Log Out</button>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Banner Section -->
     <div class="banner">
@@ -37,114 +35,51 @@
 
     <!-- About the Author Section -->
     <section id="about" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold text-[#d49e7a] mb-4">About the Author</h2>
-        <p class="text-sm md:text-base text-[#55676b]">
+        <h2 class="text-2xl md:text-3xl font-bold" style="color: #55676b;">About the Author</h2>
+        <p class="text-sm md:text-base">
             Hello! I’m Austin Rice, a passionate web development enthusiast and author of <em>The TechForge HQ</em>.
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
+        <p class="text-sm md:text-base mt-4">
             🌍 Based in the USA
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
+        <p class="text-sm md:text-base mt-4">
             Currently honing my skills in web development, with a focus on creating immersive and interactive online experiences.
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
+        <p class="text-sm md:text-base mt-4">
             As a student, I am always eager to explore new tools and technologies. My current focus is on building projects with HTML, CSS, JavaScript, and experimenting with frameworks like Tailwind CSS.
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
+        <p class="text-sm md:text-base mt-4">
             Besides coding, I enjoy storytelling and exploring the vast realms of science fiction. My debut novel, <em>The TechForge HQ</em>, merges my love for technology with my passion for the unknown.
         </p>
     </section>
 
-    <!-- Book Section -->
+    <!-- About the Book Section -->
     <section id="book" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold text-[#d49e7a] mb-4">About The TechForge HQ</h2>
-        <p class="text-sm md:text-base text-[#55676b]">
+        <h2 class="text-2xl md:text-3xl font-bold" style="color: #55676b;">About The TechForge HQ</h2>
+        <p class="text-sm md:text-base">
             by <strong>Austin Rice</strong>
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
-            In the harsh, unforgiving landscape of Mars, three scientists—Lucas, Marie, and Allison—embark on the Aurora Nine mission, their sights set on uncovering the mysteries left by their predecessors. As members of the Astronomical Studies and Travel Research Association (A.S.T.R.A.), their mission goes beyond survival; they’re charged with establishing the first habitable base on Mars and uncovering what went wrong on the ill-fated Aurora Eight mission.
+        <p class="text-sm md:text-base mt-4">
+            Welcome to The TechForge HQ! This is where we forge the future of technology through web development, design, and interactive online experiences.
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
-            But Mars is more than they bargained for. With each step across the rust-red plains, eerie discoveries hint at untold secrets. Unexplained occurrences and fleeting signals leave them questioning: what really happened to the scientists of Aurora Eight? And are they truly alone on this barren world?
+        <p class="text-sm md:text-base mt-4">
+            At TechForge HQ, we focus on innovative projects that combine cutting-edge technologies and user-friendly design. We’re here to help businesses and individuals build their digital presence with a professional and polished approach.
         </p>
-        <p class="text-sm md:text-base mt-4 text-[#55676b]">
-            <em>The TechForge HQ</em> blends suspense, science fiction, and the thrill of discovery in a journey that asks whether humanity is ready to face what lies beyond our world—and within ourselves.
+        <p class="text-sm md:text-base mt-4">
+            Whether you’re looking for web development services, creative design, or just some inspiration, you’ve found the right place. Join us as we forge the future of the web, one pixel at a time.
         </p>
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-[#76655c] text-[#d49e7a] py-8 mt-10">
+    <footer class="bg-gray-900 text-gray-100 py-8 mt-10">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">
-                &copy; 2024 Austin Rice. All Rights Reserved.
-            </p>
-            <p class="text-sm mt-2">
-                Built with GitHub Pages, Hosted on Firebase, developed using HTML, CSS, and Tailwind CSS.
-            </p>
-            <p class="text-sm mt-2">
-                Inspired by the wonders of space and technology.
-            </p>
+            <p class="text-sm">&copy; 2024 Austin Rice. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Built with GitHub Pages, Hosted on Firebase, developed using HTML, CSS, and Tailwind CSS.</p>
+            <p class="text-sm mt-2">Inspired by the wonders of technology and web development.</p>
         </div>
     </footer>
 
-    <!-- Firebase CDN scripts -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-          authDomain: "techforgeguild.firebaseapp.com",
-          projectId: "techforgeguild",
-          storageBucket: "techforgeguild.firebasestorage.app",
-          messagingSenderId: "361603237143",
-          appId: "1:361603237143:web:ea57807170fd4ff0006352",
-          measurementId: "G-PYWLKG8W2P"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-      
-        // Handle user login/logout
-        const loginLink = document.getElementById('login-link');
-        const logoutBtn = document.getElementById('logout-btn');
-
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                // User is signed in
-                loginLink.textContent = 'My Account';
-                loginLink.setAttribute('href', '/dashboard');
-                logoutBtn.classList.remove('hidden');
-            } else {
-                // No user is signed in
-                loginLink.textContent = 'Log In';
-                loginLink.setAttribute('href', '/login');
-                logoutBtn.classList.add('hidden');
-            }
-        });
-
-        logoutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
-                // Redirect to home page after logout
-                window.location.href = '/logout';
-            }).catch((error) => {
-                console.error('Error logging out:', error);
-            });
-        });
-    </script>
-
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('scale-y-100');
-            menu.classList.toggle('opacity-100');
-            menu.classList.toggle('scale-y-0');
-        });
-    </script>
+    <!-- Firebase CDN and other JS code -->
+    <script src="path-to-your-script.js"></script>
 </body>
 </html>

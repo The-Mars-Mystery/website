@@ -3,19 +3,19 @@
 /* Set the background color for the entire website */
 body {
     background-color: #292a2d; /* Dark background */
-    color: #d49e7a; /* Light text color */
+    color: #d49e7a; /* Light text color for readability */
     font-family: Arial, sans-serif;
 }
 
 /* Navbar */
 nav {
-    background-color: #76655c; /* Navbar color */
-    color: #d49e7a;
+    background-color: #292a2d; /* Dark navbar background */
+    color: #d49e7a; /* Light text color for navbar */
 }
 
 /* Navbar links */
 nav a {
-    color: #55676b;
+    color: #89a5a3; /* Use palette color for default link text */
     font-weight: bold;
     padding: 10px;
     text-decoration: none;
@@ -23,13 +23,13 @@ nav a {
 }
 
 nav a:hover {
-    color: #d49e7a;
+    color: #d49e7a; /* Hover color using palette */
 }
 
 /* Footer */
 footer {
-    background-color: #76655c; /* Footer background color */
-    color: #d49e7a;
+    background-color: #292a2d; /* Dark footer background */
+    color: #d49e7a; /* Light text color for footer */
     text-align: center;
     padding: 20px;
 }
@@ -44,21 +44,21 @@ footer {
 /* About the Author Section */
 #about {
     margin-top: 40px;
-    color: #55676b; /* About text color */
+    color: #d49e7a; /* Set body text color */
 }
 
 #about h2 {
-    color: #d49e7a; /* Heading color */
+    color: #55676b; /* Use palette for heading */
 }
 
 /* About the Book Section */
 #book {
     margin-top: 40px;
-    color: #55676b;
+    color: #d49e7a; /* Set body text color */
 }
 
 #book h2 {
-    color: #d49e7a; /* Heading color */
+    color: #55676b; /* Use palette for heading */
 }
 
 /* Smooth fade-in animation */
