@@ -3,48 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - The Mars Mysteries</title>
+    <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/mars-logo.png" type="image/png">
 </head>
 <body class="bg-black text-gray-100">
-
     <!-- Navbar -->
     <nav class="bg-gray-900 py-4">
-        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
-            <a href="/" class="text-2xl font-bold text-orange-600">The Mars Mysteries - Admin</a>
-            <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-orange-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0">
-                <a href="/admin-dashboard" class="text-gray-300 hover:text-orange-600">Dashboard</a>
-                <button id="logout-btn" class="text-gray-300 hover:text-orange-600">Log Out</button>
-            </div>
+        <div class="container mx-auto flex justify-between px-4">
+            <a href="/" class="text-2xl font-bold text-orange-600">Admin Dashboard</a>
+            <button id="logout-btn" class="text-gray-300 hover:text-orange-600">Log Out</button>
         </div>
     </nav>
 
-    <!-- Admin Content -->
-    <section class="container mx-auto mt-10 px-4">
-        <h2 class="text-2xl font-bold text-orange-600">Admin Dashboard</h2>
-        <p class="text-gray-100">Welcome to your admin dashboard. Manage users, posts, and more!</p>
-    </section>
-
-    <!-- Logout Modal -->
-    <div id="logout-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm text-center">
-            <h3 class="text-xl font-bold text-gray-800">You have been logged out.</h3>
-            <p class="mt-4 text-gray-600">You have successfully logged out. See you soon!</p>
-            <button id="close-modal" class="mt-4 bg-orange-600 text-white py-2 px-4 rounded-full">Close</button>
-        </div>
+    <!-- Dashboard Content -->
+    <div class="container mx-auto px-4 mt-10">
+        <h1 class="text-3xl font-bold text-orange-600">Welcome, Admin!</h1>
+        <p class="mt-4">This is your administrative dashboard.</p>
     </div>
 
-    <!-- Firebase and Logout Script -->
+    <!-- Firebase CDN scripts -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
             authDomain: "techforgeguild.firebaseapp.com",
@@ -55,28 +39,27 @@
             measurementId: "G-PYWLKG8W2P"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        const logoutBtn = document.getElementById('logout-btn');
-        const logoutModal = document.getElementById('logout-modal');
-        const closeModal = document.getElementById('close-modal');
+        // Authentication check
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // Redirect to login page if not authenticated
+                window.location.href = "/login";
+            }
+        });
 
+        // Logout functionality
+        const logoutBtn = document.getElementById('logout-btn');
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
-                logoutModal.classList.remove('hidden');
-                setTimeout(() => {
-                    window.location.href = '/'; // Redirect after 3 seconds
-                }, 3000);
+                window.location.href = "/";
             }).catch((error) => {
-                console.error('Error logging out: ', error);
+                console.error("Error logging out:", error);
             });
         });
-
-        closeModal.addEventListener('click', () => {
-            logoutModal.classList.add('hidden');
-        });
     </script>
-
 </body>
 </html>
