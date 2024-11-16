@@ -55,7 +55,7 @@
         const logoutBtn = document.getElementById('logout-btn');
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
-                window.location.href = "/";
+                window.location.href = "/logout";
             }).catch((error) => {
                 console.error("Error logging out:", error);
             });
