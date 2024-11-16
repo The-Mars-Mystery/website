@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Mars Mysteries</title>
+    <title>The TechForge HQ</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for custom animations -->
     <link rel="icon" href="assets/icon.png" type="image/png">
 </head>
-<body class="bg-black text-gray-100">
+<body class="bg-gray-100 text-gray-900">
 
     <!-- Navbar -->
-<nav class="bg-gray-900 py-4">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
-        <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
-        <!-- Hamburger Icon for Mobile -->
-        <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-orange-600">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-        <!-- Navigation Links with Animation -->
-        <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
-            <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
-            <a id="login-link" href="/login" class="text-gray-300 hover:text-orange-600">Log In</a> <!-- Firebase Login -->
-            <button id="logout-btn" class="text-gray-300 hover:text-orange-600 hidden">Log Out</button> <!-- Firebase Logout -->
+    <nav class="bg-blue-800 py-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
+            <a class="text-2xl font-bold text-white" href="/">The TechForge HQ</a>
+            <!-- Hamburger Icon for Mobile -->
+            <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-blue-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <!-- Navigation Links with Animation -->
+            <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
+                <a href="/" class="text-gray-300 hover:text-blue-400">Home</a>
+                <a id="login-link" href="/login" class="text-gray-300 hover:text-blue-400">Log In</a> <!-- Firebase Login -->
+                <button id="logout-btn" class="text-gray-300 hover:text-blue-400 hidden">Log Out</button> <!-- Firebase Logout -->
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Banner Section -->
     <div class="banner">
@@ -37,7 +37,7 @@
 
     <!-- About the Author Section -->
     <section id="about" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold text-orange-600 mb-4">About the Author</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4">About the Author</h2>
         <p class="text-sm md:text-base">
             Hello! I’m Austin Rice, a passionate web development enthusiast and author of <em>The Mars Mystery</em>.
         </p>
@@ -57,7 +57,7 @@
 
     <!-- Book Section -->
     <section id="book" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold text-orange-600 mb-4">About The Mars Mystery</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4">About The Mars Mystery</h2>
         <p class="text-sm md:text-base">
             by <strong>Austin Rice</strong>
         </p>
@@ -73,7 +73,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-gray-900 text-gray-100 py-8 mt-10">
+    <footer class="bg-blue-800 text-gray-100 py-8 mt-10">
         <div class="container mx-auto px-4 text-center">
             <p class="text-sm">
                 &copy; 2024 Austin Rice. All Rights Reserved.
