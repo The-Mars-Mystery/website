@@ -129,7 +129,7 @@
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
                 // Redirect to home page after logout
-                window.location.href = '/';
+                window.location.href = '/logout';
             }).catch((error) => {
                 console.error('Error logging out:', error);
             });
