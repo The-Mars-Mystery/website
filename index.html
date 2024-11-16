@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The TechForge HQ</title>
+    <title>The Mars Mysteries</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Ensure your CSS file is linked -->
-    <link rel="icon" href="assets/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for custom animations -->
+    <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
-<body class="bg-gray-800 text-gray-100">
+<body class="bg-black text-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-gray-900 py-4">
-        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
-            <a class="text-2xl font-bold text-orange-600" href="/">The TechForge HQ</a>
-            <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-orange-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
-                <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
-                <a id="login-link" href="/login" class="text-gray-300 hover:text-orange-600">Log In</a>
-                <button id="logout-btn" class="text-gray-300 hover:text-orange-600 hidden">Log Out</button>
-            </div>
+<nav class="bg-gray-900 py-4">
+    <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
+        <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
+        <!-- Hamburger Icon for Mobile -->
+        <button id="menu-toggle" class="text-gray-300 lg:hidden focus:outline-none focus:text-orange-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <!-- Navigation Links with Animation -->
+        <div id="menu" class="w-full lg:flex lg:w-auto lg:space-x-6 mt-2 lg:mt-0 transform transition-all duration-300 ease-in-out origin-top scale-y-0 lg:scale-y-100 lg:opacity-100">
+            <a href="/" class="text-gray-300 hover:text-orange-600">Home</a>
+            <a id="login-link" href="/login" class="text-gray-300 hover:text-orange-600">Log In</a> <!-- Firebase Login -->
+            <button id="logout-btn" class="text-gray-300 hover:text-orange-600 hidden">Log Out</button> <!-- Firebase Logout -->
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Banner Section -->
     <div class="banner">
@@ -35,51 +37,66 @@
 
     <!-- About the Author Section -->
     <section id="about" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold" style="color: #55676b;">About the Author</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-600 mb-4">About the Owner</h2>
         <p class="text-sm md:text-base">
-            Hello! I’m Austin Rice, a passionate web development enthusiast and author of <em>The TechForge HQ</em>.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            🌍 Based in the USA
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Currently honing my skills in web development, with a focus on creating immersive and interactive online experiences.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            As a student, I am always eager to explore new tools and technologies. My current focus is on building projects with HTML, CSS, JavaScript, and experimenting with frameworks like Tailwind CSS.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Besides coding, I enjoy storytelling and exploring the vast realms of science fiction. My debut novel, <em>The TechForge HQ</em>, merges my love for technology with my passion for the unknown.
-        </p>
-    </section>
-
-    <!-- About the Book Section -->
-    <section id="book" class="container mx-auto mt-10 px-4 fade-in">
-        <h2 class="text-2xl md:text-3xl font-bold" style="color: #55676b;">About The TechForge HQ</h2>
-        <p class="text-sm md:text-base">
-            by <strong>Austin Rice</strong>
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Welcome to The TechForge HQ! This is where we forge the future of technology through web development, design, and interactive online experiences.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            At TechForge HQ, we focus on innovative projects that combine cutting-edge technologies and user-friendly design. We’re here to help businesses and individuals build their digital presence with a professional and polished approach.
-        </p>
-        <p class="text-sm md:text-base mt-4">
-            Whether you’re looking for web development services, creative design, or just some inspiration, you’ve found the right place. Join us as we forge the future of the web, one pixel at a time.
+            Hello! I’m Austin Rice, a passionate web development enthusiast and author of <em>The Mars Mystery</em>.
         </p>
     </section>
 
     <!-- Footer Section -->
     <footer class="bg-gray-900 text-gray-100 py-8 mt-10">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">&copy; 2024 Austin Rice. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Built with GitHub Pages, Hosted on Firebase, developed using HTML, CSS, and Tailwind CSS.</p>
-            <p class="text-sm mt-2">Inspired by the wonders of technology and web development.</p>
+            <p class="text-sm">
+                &copy; 2024 Austin Rice. All Rights Reserved.
+            </p>
         </div>
     </footer>
 
-    <!-- Firebase CDN and other JS code -->
-    <script src="path-to-your-script.js"></script>
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
+  
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
+            authDomain: "techforgeguild.firebaseapp.com",
+            projectId: "techforgeguild",
+            storageBucket: "techforgeguild.firebasestorage.app",
+            messagingSenderId: "361603237143",
+            appId: "1:361603237143:web:ea57807170fd4ff0006352",
+            measurementId: "G-PYWLKG8W2P"
+        };
+      
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+      
+        // Handle user login/logout
+        const loginLink = document.getElementById('login-link');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // User is signed in
+                loginLink.textContent = 'My Account';
+                loginLink.setAttribute('href', '/dashboard');
+                logoutBtn.classList.remove('hidden');
+            } else {
+                // No user is signed in
+                loginLink.textContent = 'Log In';
+                loginLink.setAttribute('href', '/login');
+                logoutBtn.classList.add('hidden');
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            firebase.auth().signOut().then(() => {
+                // Redirect after logout
+                window.location.href = '/';
+            }).catch((error) => {
+                console.error('Error logging out: ', error);
+            });
+        });
+    </script>
 </body>
 </html>
