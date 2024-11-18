@@ -24,20 +24,20 @@ body {
 
 /* Navbar Hover Effect */
 nav a:hover {
-    color: #FF6900;
+    color: #00FFCC;
     transition: color 0.3s ease;
 }
 
 /* Banner Image Styling */
 .banner img {
-    border-bottom: 4px solid #FF6900;
+    border-bottom: 4px solid #00FFCC;
 }
 
 /* Header Styling */
 h2 {
     font-family: 'Georgia', serif;
     font-weight: bold;
-    color: #FF6900;
+    color: #00FFCC;
 }
 
 /* Footer Styling */
@@ -46,14 +46,14 @@ footer p {
     transition: color 0.3s;
 }
 footer p:hover {
-    color: #FF6900;
+    color: #00FFCC;
 }
 
 /* Button Styling */
 [data-fillout-button-text] {
     color: #FFF;
-    background-color: #FF6900;
-    border: 1px solid #FF6900;
+    background-color: #00FFCC;
+    border: 1px solid #00FFCC;
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 16px;
@@ -62,7 +62,7 @@ footer p:hover {
 }
 
 [data-fillout-button-text]:hover {
-    background-color: #ff5500;
+    background-color: #00FFCC;
     color: #FFF;
 }
 
@@ -114,7 +114,7 @@ footer p:hover {
 }
 
 #logout-modal button {
-    background-color: #FF6900;
+    background-color: #00FFCC;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -124,7 +124,7 @@ footer p:hover {
 }
 
 #logout-modal button:hover {
-    background-color: #ff5500;
+    background-color: #00FFCC;
 }
 
 /* Responsive Styling for Modal */
