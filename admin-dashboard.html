@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +69,7 @@
         onAuthStateChanged(auth, (user) => {
             if (!user) {
                 // Redirect to login page if not authenticated
-                window.location.href = "htmls/login";
+                window.location.href = "login";
             }
         });
 
@@ -76,7 +77,7 @@
         const logoutBtn = document.getElementById('logout-btn');
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
-                window.location.href = "htmls/logout";
+                window.location.href = "logout";
             }).catch((error) => {
                 console.error("Error logging out:", error);
             });
