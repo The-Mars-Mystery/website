@@ -116,12 +116,12 @@
             if (user) {
                 // User is signed in
                 loginLink.textContent = 'My Account';
-                loginLink.setAttribute('href', '/dashboard');
+                loginLink.setAttribute('href', 'htmls/dashboard');
                 logoutBtn.classList.remove('hidden');
             } else {
                 // No user is signed in
                 loginLink.textContent = 'Log In';
-                loginLink.setAttribute('href', '/login');
+                loginLink.setAttribute('href', 'htmls/login');
                 logoutBtn.classList.add('hidden');
             }
         });
@@ -129,7 +129,7 @@
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
                 // Redirect to home page after logout
-                window.location.href = '/logout';
+                window.location.href = 'htmls/logout';
             }).catch((error) => {
                 console.error('Error logging out:', error);
             });
