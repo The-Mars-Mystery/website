@@ -26,8 +26,9 @@
         .btn {
             background: linear-gradient(90deg, #FF4500, #FF6347);
             color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .btn:hover {
@@ -61,11 +62,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="h-screen bg-cover bg-center flex items-center justify-center text-center" style="background-image: url('assets/banner.jpeg');">
-        <div class="bg-black bg-opacity-60 p-6 rounded-md fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold text-orange-500">The Mars Mysteries</h1>
-            <p class="text-lg md:text-xl mt-4 text-gray-300">Unravel the secrets of Mars with an edge-of-your-seat sci-fi adventure.</p>
-            <a href="#book" class="btn mt-6">Discover More</a>
+    <header class="h-screen bg-cover bg-center flex items-center justify-center text-center relative" style="background-image: url('assets/banner.jpeg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative z-10 p-6">
+            <h1 class="text-5xl md:text-6xl font-bold text-orange-500 mb-4">The Mars Mysteries</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Unravel the secrets of Mars with an edge-of-your-seat sci-fi adventure.
+            </p>
+            <a href="#book" class="btn">Discover More</a>
         </div>
     </header>
 
@@ -73,7 +77,9 @@
     <section id="about" class="py-20 bg-gray-900 text-center fade-in">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-orange-500 mb-4">About the Author</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto">Hi, I'm Austin Rice, a passionate sci-fi author with a knack for weaving thrilling stories about exploration, survival, and the mysteries of space.</p>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+                Hi, I'm Austin Rice, a passionate sci-fi author with a knack for weaving thrilling stories about exploration, survival, and the mysteries of space.
+            </p>
         </div>
     </section>
 
@@ -81,8 +87,10 @@
     <section id="book" class="py-20 bg-black text-center fade-in">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-orange-500 mb-4">The Mars Mystery</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto">In *The Mars Mystery*, follow three scientists as they uncover the haunting truths left behind by the ill-fated Aurora Eight mission. Their journey across the unforgiving Martian landscape reveals more than they bargained for—secrets that could alter humanity's destiny.</p>
-            <a href="/read-more" class="btn mt-6">Read More</a>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+                In *The Mars Mystery*, follow three scientists as they uncover the haunting truths left behind by the ill-fated Aurora Eight mission. Their journey across the unforgiving Martian landscape reveals more than they bargained for—secrets that could alter humanity's destiny.
+            </p>
+            <a href="/read-more" class="btn">Read More</a>
         </div>
     </section>
 
@@ -104,13 +112,12 @@
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-            authDomain: "techforgeguild.firebaseapp.com",
-            projectId: "techforgeguild",
-            storageBucket: "techforgeguild.firebasestorage.app",
-            messagingSenderId: "361603237143",
-            appId: "1:361603237143:web:ea57807170fd4ff0006352",
-            measurementId: "G-PYWLKG8W2P"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
         };
 
         const app = initializeApp(firebaseConfig);
