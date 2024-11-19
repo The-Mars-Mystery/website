@@ -37,4 +37,19 @@ body {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
+    body {
+        font-family: 'Montserrat', sans-serif;
+        scroll-behavior: smooth;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        margin-bottom: 16px;
+    }
+    
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+}    
