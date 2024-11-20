@@ -1,57 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | The Mars Mysteries</title>
+    <title>User Login - The TechForge HQ</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="assets/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-black text-gray-100">
-
-    <!-- Navbar -->
-    <nav class="bg-gray-900 py-4">
-        <div class="container mx-auto flex items-center justify-between px-4">
-            <a class="text-2xl font-bold text-orange-600" href="/">The Mars Mysteries</a>
-            <div class="space-x-4">
-                <a id="nav-login" href="/login" class="text-gray-300 hover:text-orange-600">Login</a>
-                <button id="logout-btn" class="hidden text-gray-300 hover:text-orange-600">Logout</button>
-            </div>
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-sm w-full text-center">
+            <h1 class="text-2xl font-bold text-orange-500 mb-4">User Login</h1>
+            <form id="login-form">
+                <div class="mb-4">
+                    <input type="email" id="email" placeholder="Email" class="w-full p-3 rounded-md text-gray-800" required>
+                </div>
+                <div class="mb-6">
+                    <input type="password" id="password" placeholder="Password" class="w-full p-3 rounded-md text-gray-800" required>
+                </div>
+                <button type="submit" class="btn w-full">Log In</button>
+            </form>
         </div>
-    </nav>
+    </div>
 
-    <!-- Login Section -->
-    <section class="container mx-auto mt-10 px-4">
-        <h1 class="text-3xl font-bold text-orange-600 mb-6">Login</h1>
-
-        <!-- Login Form -->
-        <form id="login-form" class="space-y-4">
-            <div>
-                <label for="login-email" class="block text-sm">Email</label>
-                <input id="login-email" type="email" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded text-white">
-            </div>
-            <div>
-                <label for="login-password" class="block text-sm">Password</label>
-                <input id="login-password" type="password" required class="w-full p-2 bg-gray-800 border border-gray-700 rounded text-white">
-            </div>
-            <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded">Login</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-100 py-8 mt-10">
-        <div class="container mx-auto text-center">
-            <p class="text-sm">&copy; 2024 Austin Rice. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Firebase Authentication -->
     <script type="module">
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
-        // Firebase configuration (replace with your project's settings)
         const firebaseConfig = {
             apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
             authDomain: "techforgeguild.firebaseapp.com",
@@ -59,72 +36,37 @@
             storageBucket: "techforgeguild.firebasestorage.app",
             messagingSenderId: "361603237143",
             appId: "1:361603237143:web:ea57807170fd4ff0006352",
-            measurementId: "G-PYWLKG8W2P"
+            measurementId: "G-PYWLKG8W2P",
+            databaseURL: "https://techforgeguild-default-rtdb.firebaseio.com/"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getDatabase(app);
 
-        // Login Form Submission
         const loginForm = document.getElementById('login-form');
+
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
             try {
+                const snapshot = await get(ref(db, "settings/maintenance"));
+                const maintenanceMode = snapshot.exists() ? snapshot.val() : false;
+
+                if (maintenanceMode) {
+                    alert("The site is under maintenance. Please try again later.");
+                    return;
+                }
+
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
-                // Set a cookie for the logged-in user
-                document.cookie = `userEmail=${user.email}; path=/; max-age=3600`;
-
-                // Redirect based on role
-                if (user.email === "austinrice0024@gmail.com") { // Replace with your admin email
-                    window.location.href = "admin-dashboard";
-                } else {
-                    window.location.href = "user-dashboard";
-                }
+                window.location.href = '/dashboard'; // Redirect to user dashboard
             } catch (error) {
-                console.error("Login Error:", error.message);
-                alert("Login failed: " + error.message);
-            }
-        });
-
-        // Navbar Updates and Logout
-        const navLogin = document.getElementById('nav-login');
-        const logoutBtn = document.getElementById('logout-btn');
-
-        // Detect Auth State
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navLogin.textContent = "My Account";
-                navLogin.href = user.email === "austinrice0024@gmail.com" 
-                    ? "/admin-dashboard" 
-                    : "/user-dashboard";
-                logoutBtn.classList.remove('hidden');
-            } else {
-                navLogin.textContent = "Login";
-                navLogin.href = "/login";
-                logoutBtn.classList.add('hidden');
-            }
-        });
-
-        // Logout Functionality
-        logoutBtn.addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-
-                // Clear user cookie
-                document.cookie = "userEmail=; path=/; max-age=0";
-
-                alert("You have been logged out.");
-                window.location.href = "/";
-            } catch (error) {
-                console.error("Logout Error:", error.message);
-                alert("Logout failed: " + error.message);
+                alert(error.message);
             }
         });
     </script>

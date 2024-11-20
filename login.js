@@ -1,35 +1,72 @@
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+// Import Firebase Authentication
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
 
-const auth = getAuth();
-const db = getFirestore();
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
+    authDomain: "techforgeguild.firebaseapp.com",
+    projectId: "techforgeguild",
+    storageBucket: "techforgeguild.firebasestorage.app",
+    messagingSenderId: "361603237143",
+    appId: "1:361603237143:web:ea57807170fd4ff0006352",
+    measurementId: "G-PYWLKG8W2P"
+};
 
-document.getElementById("login-button").addEventListener("click", async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-    try {
-        // Authenticate the user
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+// Get the login form elements
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const loginButton = document.getElementById("login-button");
 
-        // Check if the user is an admin
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-        if (userDoc.exists()) {
-            const userData = userDoc.data();
-            if (userData.isAdmin) {
-                console.log("Admin login detected. Redirecting...");
-                window.location.href = "admin-dashboard.html";
+// Add event listener for login button
+loginButton.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    // Sign in the user with email and password
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+
+            // Get the ID token and check for admin claims
+            user.getIdTokenResult().then((idTokenResult) => {
+                // Check if the user has admin privileges
+                if (idTokenResult.claims.admin) {
+                    // Admin, allow access to admin page
+                    window.location.href = '/admin-dashboard'; // Redirect to admin dashboard or wherever needed
+                } else {
+                    // Regular user, redirect to the user area or maintenance page
+                    window.location.href = '/maintenance'; // Redirect non-admins to maintenance mode
+                }
+            });
+        })
+        .catch((error) => {
+            // Handle authentication errors
+            console.error('Error logging in:', error);
+            alert('Login failed. Please check your credentials.');
+        });
+});
+
+// Check if the user is already logged in
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        user.getIdTokenResult().then((idTokenResult) => {
+            // Check if the user has admin privileges
+            if (idTokenResult.claims.admin) {
+                // Redirect to admin dashboard
+                window.location.href = '/admin-dashboard';
             } else {
-                console.log("Regular user login. Redirecting...");
-                window.location.href = "user-dashboard.html";
+                // Regular user, redirect to maintenance page or home
+                window.location.href = '/maintenance'; // Redirect non-admins to maintenance
             }
-        } else {
-            console.error("No user document found.");
-            alert("Error: User data not found.");
-        }
-    } catch (error) {
-        console.error("Error during login:", error.message);
-        alert("Login failed: " + error.message);
+        });
+    } else {
+        // No user logged in, stay on the login page
     }
 });
