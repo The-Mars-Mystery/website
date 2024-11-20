@@ -5,13 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Under Maintenance</title>
     <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .maintenance-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .maintenance-icon {
+            font-size: 6rem;
+            color: #FF6347;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .maintenance-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF4500;
+            margin-top: 20px;
+        }
+
+        .maintenance-text {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #d3d3d3;
+            line-height: 1.6;
+        }
+
+        .contact-link, .admin-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #FF4500, #FF6347);
+            color: #ffffff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+
+        .contact-link:hover, .admin-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 5px 15px rgba(255, 99, 71, 0.4);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+    </style>
 </head>
-<body class="bg-black text-gray-100 text-center flex items-center justify-center h-screen">
-    <div>
-        <h1 class="text-4xl font-bold text-orange-500">We'll Be Back Soon!</h1>
-        <p class="text-gray-300 mt-4">
-            The website is currently undergoing maintenance. Please check back later.
+<body>
+    <div class="maintenance-container">
+        <div class="maintenance-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+        <h1 class="maintenance-title">We'll Be Back Soon!</h1>
+        <p class="maintenance-text">
+            Our website is currently undergoing some scheduled maintenance.  
+            We appreciate your patience and understanding while we work to improve your experience.
         </p>
+        <a href="mailto:support@example.com" class="contact-link">Contact Support</a>
+        <a href="/admin-login" class="admin-link">Are you an Admin? Login here to continue</a>
+        <footer>
+            &copy; 2024 TheAwesomeAJ. All rights reserved.
+        </footer>
     </div>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
