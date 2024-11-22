@@ -21,14 +21,19 @@
             <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
             <ul class="flex space-x-6 uppercase text-sm relative">
                 <li><a href="/about" class="nav-link">About</a></li>
-                <li class="relative group">
-                    <a href="#" class="nav-link">Guides</a>
-                    <div class="absolute left-0 hidden group-hover:block bg-gray-900 mt-2 shadow-lg rounded-md">
-                        <a href="/html-guide" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-gray-800">HTML</a>
-                        <a href="/css-guide" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-gray-800">CSS</a>
-                        <a href="/javascript-guide" class="block px-4 py-2 text-gray-300 hover:text-orange-500 hover:bg-gray-800">JavaScript</a>
+                <li class="relative">
+                    <button id="dropdownButton" class="nav-link flex items-center focus:outline-none">
+                        Guides
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="dropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/html-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">HTML</a>
+                        <a href="/css-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">CSS</a>
+                        <a href="/javascript-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">JavaScript</a>
                     </div>
-                </li>
+                </li>                
                 <li><a href="/blog" class="nav-link">Blog</a></li>
             </ul>
         </div>
