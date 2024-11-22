@@ -4,21 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML 101 Guide</title>
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* General Code Box Style */
-        .code-box {
-            background-color: #2d2d2d; /* Dark background */
-            color: #f1f1f1; /* Light text */
-            border-radius: 6px; /* Rounded corners */
-            padding: 15px; /* Inner spacing */
-            overflow-x: auto; /* Horizontal scrolling for long code */
-            font-family: 'Courier New', monospace; /* Monospace font */
-            border: 1px solid #555; /* Border around the box */
-            margin-bottom: 1.5rem; /* Space between boxes */
-        }
-    </style>
+    <link rel="icon" href="/assets/icon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-black text-gray-100">
 
@@ -34,80 +25,106 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header class="h-64 bg-gradient-to-r from-teal-500 to-gray-700 flex items-center justify-center text-center">
-        <h1 class="text-4xl font-bold text-teal-100">HTML 101: Beginner's Guide</h1>
+    <!-- Hero Section -->
+    <header class="h-80 bg-cover bg-center flex items-center justify-center text-center relative" style="background: linear-gradient(to bottom, #00bcd4, #607d8b);">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative z-10 p-6">
+            <h1 class="text-5xl md:text-6xl font-bold text-teal-400 mb-4">HTML 101 Guide</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                Learn the basics of HTML, the backbone of web development. Build your foundation for crafting amazing web pages!
+            </p>
+        </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container bg-gray-900 text-gray-200 rounded-lg shadow-lg p-6 mt-20">
-        <section>
-            <h2 class="text-2xl font-bold text-teal-400">Introduction to HTML</h2>
-            <p>
-                HTML (HyperText Markup Language) is the standard language for creating web pages. It uses a system of tags to structure content on a webpage, such as headings, paragraphs, images, and links.
-            </p>
-        </section>
+    <main class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <!-- Introduction -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-teal-400 mb-4">Introduction to HTML</h2>
+                <p class="text-gray-300 leading-loose">
+                    HTML, or HyperText Markup Language, is the standard language used to create web pages. It provides the basic structure of a website, which is then enhanced and modified by other technologies like CSS and JavaScript.
+                </p>
+            </section>
 
-        <section>
-            <h2 class="text-2xl font-bold text-teal-400 mt-8">Basic Structure of an HTML Document</h2>
-            <p>Every HTML document follows a specific structure:</p>
-            <div class="code-box">
-                <pre><code>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My First Webpage</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to HTML coding!</p>
-</body>
-</html>
-                </code></pre>
-            </div>
-        </section>
+            <!-- Structure of an HTML Document -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-teal-400 mb-4">Structure of an HTML Document</h2>
+                <p class="text-gray-300 leading-loose mb-4">
+                    An HTML document typically contains the following elements:
+                </p>
+                <ul class="list-disc pl-6 text-gray-300">
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong>: Declares the document type.</li>
+                    <li><strong>&lt;html&gt;</strong>: The root element of an HTML document.</li>
+                    <li><strong>&lt;head&gt;</strong>: Contains meta information about the document (e.g., title, styles, scripts).</li>
+                    <li><strong>&lt;body&gt;</strong>: Contains the content visible on the page.</li>
+                </ul>
+                <div class="code-box mt-4">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First HTML Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                </div>
+            </section>
 
-        <section>
-            <h2 class="text-2xl font-bold text-teal-400 mt-8">Common HTML Tags</h2>
-            <ul class="list-disc list-inside">
-                <li><strong>&lt;h1&gt; to &lt;h6&gt;:</strong> Define headings, with &lt;h1&gt; as the largest and &lt;h6&gt; as the smallest.</li>
-                <li><strong>&lt;p&gt;:</strong> Represents a paragraph.</li>
-                <li><strong>&lt;a&gt;:</strong> Creates a hyperlink. Example: &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;.</li>
-                <li><strong>&lt;img&gt;:</strong> Embeds an image. Example: &lt;img src="image.jpg" alt="Description"&gt;.</li>
-                <li><strong>&lt;ul&gt; and &lt;li&gt;:</strong> Creates unordered lists with bullet points.</li>
-            </ul>
-        </section>
+            <!-- Common HTML Elements -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-teal-400 mb-4">Common HTML Elements</h2>
+                <p class="text-gray-300 leading-loose">
+                    HTML provides a variety of elements to structure content. Here are some of the most commonly used ones:
+                </p>
+                <div class="mt-4">
+                    <h3 class="text-2xl text-orange-500 mb-2">Headings</h3>
+                    <p class="text-gray-300 mb-2">Use headings to create titles or subtitles for your content.</p>
+                    <div class="code-box">
+<pre>
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Smaller Subheading&lt;/h3&gt;
+</pre>
+                    </div>
+                </div>
 
-        <section>
-            <h2 class="text-2xl font-bold text-teal-400 mt-8">Nesting and Indentation</h2>
-            <p>
-                HTML tags can be nested inside one another, but proper indentation is crucial for readability. Here’s an example:
-            </p>
-            <div class="code-box">
-                <pre><code>
-<div>
-    <h1>Main Heading</h1>
-    <p>This is a paragraph inside a &lt;div&gt;.</p>
-</div>
-                </code></pre>
-            </div>
-        </section>
+                <div class="mt-8">
+                    <h3 class="text-2xl text-orange-500 mb-2">Paragraphs</h3>
+                    <p class="text-gray-300 mb-2">The &lt;p&gt; element defines a paragraph of text.</p>
+                    <div class="code-box">
+<pre>
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+</pre>
+                    </div>
+                </div>
 
-        <section>
-            <h2 class="text-2xl font-bold text-teal-400 mt-8">Tips for Writing HTML</h2>
-            <ul class="list-disc list-inside">
-                <li>Always close your tags (e.g., &lt;/p&gt; for paragraphs).</li>
-                <li>Use comments (&lt;!-- Comment --&gt;) to document your code.</li>
-                <li>Validate your HTML with tools like the W3C HTML validator.</li>
-                <li>Stick to semantic tags for better accessibility and SEO (e.g., &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;).</li>
-            </ul>
-        </section>
+                <div class="mt-8">
+                    <h3 class="text-2xl text-orange-500 mb-2">Links</h3>
+                    <p class="text-gray-300 mb-2">Use the &lt;a&gt; element to create hyperlinks.</p>
+                    <div class="code-box">
+<pre>
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+</pre>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 text-center">
         <div class="container mx-auto px-4">
             <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
+            <div class="flex justify-center mt-4 space-x-4">
+                <a href="https://twitter.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </footer>
 </body>
