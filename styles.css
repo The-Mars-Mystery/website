@@ -2,6 +2,9 @@
 body {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background for the whole page */
 }
 
 .nav-link {
@@ -10,6 +13,45 @@ body {
 
 .nav-link:hover {
     color: #FF4500;
+}
+
+/* Hero Section - Gradient Background */
+header {
+    height: 100vh; /* Full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #00bcd4, #607d8b); /* Cyan to gray gradient */
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00bcd4; /* Cyan text for the title */
+}
+
+header p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #cfd8dc; /* Lighter gray for the text */
+}
+
+header .btn {
+    background: #00bcd4; /* Cyan button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+header .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 188, 212, 0.4);
 }
 
 /* Button Styling */
@@ -37,19 +79,22 @@ body {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-    body {
-        font-family: 'Montserrat', sans-serif;
-        scroll-behavior: smooth;
-        margin: 0;
-        padding: 0;
-    }
-    
-    h1 {
-        margin-bottom: 16px;
-    }
-    
-    p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-    }
-}    
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+h1 {
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}

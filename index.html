@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="/scripts/scripts.js"></script>
 </head>
 <body class="bg-black text-gray-100">
 
@@ -23,17 +22,16 @@
             <ul class="flex space-x-6 uppercase text-sm">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#book" class="nav-link">The Book</a></li>
-                <li><a id="login-link" href="/login" class="nav-link">Log In</a></li>
-                <li><button id="logout-btn" class="nav-link hidden">Log Out</button></li>
+                <!-- Removed Login link -->
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="h-screen bg-cover bg-center flex items-center justify-center text-center relative" style="background-image: url('assets/banner.jpeg');">
+    <header class="h-screen bg-cover bg-center flex items-center justify-center text-center relative" style="background: linear-gradient(to bottom, #00bcd4, #607d8b);">
         <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         <div class="relative z-10 p-6">
-            <h1 class="text-5xl md:text-6xl font-bold text-orange-500 mb-4">Welcome to The TechForge HQ</h1>
+            <h1 class="text-5xl md:text-6xl font-bold text-teal-400 mb-4">Welcome to The TechForge HQ</h1>
             <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
                 Your ultimate destination for graphics and code design. We offer the best tools and resources to bring your projects to life!
             </p>
@@ -44,9 +42,9 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-900 text-center fade-in">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-orange-500 mb-4">Graphics Design</h2>
+            <h2 class="text-3xl font-bold text-teal-400 mb-4">Graphics Design</h2>
             <p class="text-gray-300 max-w-2xl mx-auto">
-                Looking for some awesome grahpics for your website or app? Look no further! Here at the TechForge HQ, we offer a wide range of graphics design services to help you bring your projects to life. Whether you need a logo, banner, or custom illustrations, we've got you covered! Click the button below to learn more.
+                Looking for some awesome graphics for your website or app? Look no further! Here at the TechForge HQ, we offer a wide range of graphics design services to help you bring your projects to life. Whether you need a logo, banner, or custom illustrations, we've got you covered! Click the button below to learn more.
             </p>
             <a href="/coming-soon" class="btn">Graphics</a>
         </div>
@@ -75,46 +73,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Firebase Configuration -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyB3tX7_f9HaGYnRY5oVSMyelZdeFVTZahA",
-            authDomain: "techforgeguild.firebaseapp.com",
-            projectId: "techforgeguild",
-            storageBucket: "techforgeguild.firebasestorage.app",
-            messagingSenderId: "361603237143",
-            appId: "1:361603237143:web:ea57807170fd4ff0006352",
-            measurementId: "G-PYWLKG8W2P"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        const loginLink = document.getElementById('login-link');
-        const logoutBtn = document.getElementById('logout-btn');
-
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                loginLink.textContent = 'Dashboard';
-                loginLink.setAttribute('href', '/dashboard');
-                logoutBtn.classList.remove('hidden');
-            } else {
-                loginLink.textContent = 'Log In';
-                loginLink.setAttribute('href', '/login');
-                logoutBtn.classList.add('hidden');
-            }
-        });
-
-        logoutBtn.addEventListener('click', () => {
-            signOut(auth).then(() => {
-                window.location.href = '/logout';
-            }).catch(console.error);
-        });
-    </script>
 
     <!-- Scroll Animation -->
     <script>
