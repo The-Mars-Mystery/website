@@ -8,40 +8,42 @@
 </head>
 <body class="bg-black text-gray-100">
     <!-- Navbar -->
-    <nav class="bg-black fixed w-full z-50">
-        <div class="container mx-auto flex items-center justify-between py-4 px-6">
-            <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
-            <ul class="flex space-x-6 uppercase text-sm">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/about" class="nav-link">About</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
-                <li><a href="/blog" class="nav-link">Blog</a></li>
-            </ul>
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="logo">TechForge HQ</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li><a href="/blog" class="nav-link active">Blog</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="pt-20">
-        <section class="py-16 bg-gray-900 text-center">
-            <div class="container mx-auto px-4">
-                <article class="max-w-4xl mx-auto text-left">
-                    <h2 class="text-3xl font-bold text-orange-500 mb-4">The Art of Graphic Design</h2>
-                    <p class="text-gray-500 text-sm mb-6">Posted on October 10, 2023 by Austin</p>
-                    <img src="/images/graphic-design.jpg" alt="Graphic Design" class="rounded-lg shadow-md mb-6 mx-auto">
-                    <p class="text-gray-300 mb-6">
-                        Graphic design is a craft where professionals create visual content to communicate messages. By applying visual hierarchy and page layout techniques, designers use typography and pictures to meet users' specific needs and focus on the logic of displaying elements in interactive designs, to optimize the user experience.
+    <main class="content">
+        <section class="blog-post">
+            <div class="container">
+                <article>
+                    <h1 class="title">The Art of Graphic Design</h1>
+                    <p class="meta">Posted on November 22, 2024 by <a href="https://www.github.com/TheAwesomeAJ" target="_blank" rel="noopener noreferrer"><strong>TheAwesomeAJ</strong></a></p>
+                    <img src="/images/graphic-design.jpg" alt="Graphic Design" class="post-image">
+                    <p>
+                        Graphic design is a craft where professionals create visual content to communicate messages. By applying visual hierarchy and page layout techniques, designers use typography and pictures to meet users' specific needs and focus on the logic of displaying elements in interactive designs, to optimize the user experience. It is a multifaceted discipline that encompasses a wide range of skills and tools, from traditional art forms to cutting-edge digital technologies.
                     </p>
-                    <h3 class="text-2xl font-bold text-teal-400 mb-4">Understanding the Basics</h3>
-                    <p class="text-gray-300 mb-6">
-                        Graphic design is about more than just aesthetics; it’s about understanding the principles of design and how to apply them effectively. This includes understanding color theory, typography, and layout principles.
+                    <h2>Understanding the Basics</h2>
+                    <p>
+                        Graphic design is about more than just aesthetics; it’s about understanding the principles of design and how to apply them effectively. This includes understanding color theory, typography, and layout principles. A good designer must also have a keen eye for detail and a deep understanding of how different elements interact with each other to create a cohesive and visually appealing whole.
                     </p>
-                    <h3 class="text-2xl font-bold text-teal-400 mb-4">Tools of the Trade</h3>
-                    <p class="text-gray-300 mb-6">
-                        There are many tools available to graphic designers, from traditional tools like pencils and paper to modern software like Adobe Photoshop and Illustrator. Each tool has its own strengths and weaknesses, and the best designers know how to use them all effectively.
+                    <h2>Tools of the Trade</h2>
+                    <p>
+                        There are many tools available to graphic designers, from traditional tools like pencils and paper to modern software like Adobe Photoshop, Illustrator, and Figma. Each tool has its own strengths and weaknesses, and the best designers know how to use them all effectively. Mastery of these tools allows designers to bring their creative visions to life, whether they are working on a simple logo or a complex multimedia project.
                     </p>
-                    <h3 class="text-2xl font-bold text-teal-400 mb-4">Trends in Graphic Design</h3>
-                    <p class="text-gray-300">
-                        Graphic design is constantly evolving, with new trends emerging all the time. Some current trends include minimalism, bold colors, and the use of 3D elements. Staying up-to-date with these trends is crucial for any designer who wants to stay relevant in the industry.
+                    <h2>Trends in Graphic Design</h2>
+                    <p>
+                        Graphic design is constantly evolving, with new trends emerging all the time. Some current trends include minimalism, bold colors, and the use of 3D elements. Staying up-to-date with these trends is crucial for any designer who wants to stay relevant in the industry. Additionally, understanding the cultural and social contexts in which these trends arise can provide valuable insights into how to apply them effectively in different projects.
                     </p>
                 </article>
             </div>
@@ -49,9 +51,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
         </div>
     </footer>
 </body>
