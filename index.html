@@ -128,6 +128,35 @@
             handleScroll();
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdownButtons = document.querySelectorAll("[id$='DropdownButton']");
+            const dropdownMenus = document.querySelectorAll("[id$='DropdownMenu']");
+    
+            dropdownButtons.forEach((button, index) => {
+                const menu = dropdownMenus[index];
+    
+                // Toggle dropdown menu visibility
+                button.addEventListener("click", () => {
+                    const isHidden = menu.classList.contains("hidden");
+                    if (isHidden) {
+                        menu.classList.remove("hidden", "opacity-0");
+                        menu.classList.add("opacity-100");
+                    } else {
+                        menu.classList.add("hidden", "opacity-0");
+                        menu.classList.remove("opacity-100");
+                    }
+                });
+    
+                // Close the dropdown if clicked outside
+                document.addEventListener("click", (e) => {
+                    if (!button.contains(e.target) && !menu.contains(e.target)) {
+                        menu.classList.add("hidden", "opacity-0");
+                        menu.classList.remove("opacity-100");
+                    }
+                });
+            });
+        });
+    </script>    
 </body>
-    <script src="scripts/dropdown.js"></script>
 </html>
