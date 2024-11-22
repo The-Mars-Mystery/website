@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #121212; /* Dark background for the whole page */
-}
 
 /* Navbar Links */
 .nav-link {
@@ -90,17 +89,18 @@ h1 {
 p {
     font-size: 1.2rem;
     line-height: 1.6;
-
-    /* Remove text-transform for dropdown items */
-.dropdown-menu a {
-    text-transform: none; /* Ensures text appears as written */
-    font-size: 0.9rem; /* Optional: Slightly smaller font size for dropdown items */
 }
 
-/* Optional: Ensure hover styles match the design */
+/* Dropdown Menu Styling */
+.dropdown-menu a {
+    text-transform: none; /* Removes the all-caps style */
+    /* Optional: Adjust font size for dropdown */
+    font-size: 0.9rem;
+}
+
 .dropdown-menu a:hover {
-    background-color: #2d3748; /* Subtle gray background on hover */
-    color: hsl(153, 100%, 63%); /* Matches your accent color */
+    background-color: #2d3748; /* Subtle background on hover */
+    color: #43ffca; /* Accent color for hover text */
 }
 
     
