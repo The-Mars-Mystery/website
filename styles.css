@@ -13,7 +13,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #FF4500; /* Highlight color on hover */
+    color: #00ffdd; /* Highlight color on hover */
 }
 
 /* Hero Section - Gradient Background */
@@ -91,23 +91,5 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
 
-    /* Blog Specific Styling */
-header {
-    background: linear-gradient(to bottom, #00bcd4, #607d8b); /* Cyan to gray gradient */
-}
-
-#blog-posts .bg-gray-800 {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#blog-posts .bg-gray-800:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 188, 212, 0.2);
-}
-
-/* Category Filter */
-select {
-    border: 1px solid #00bcd4;
-}
-
+    
 }
