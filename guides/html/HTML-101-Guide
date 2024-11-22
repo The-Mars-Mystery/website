@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 101 Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Code Box Style */
+        .code-box {
+            background-color: #2d2d2d; /* Dark background */
+            color: #f1f1f1; /* Light text */
+            border-radius: 6px; /* Rounded corners */
+            padding: 15px; /* Inner spacing */
+            overflow-x: auto; /* Horizontal scrolling for long code */
+            font-family: 'Courier New', monospace; /* Monospace font */
+            border: 1px solid #555; /* Border around the box */
+            margin-bottom: 1.5rem; /* Space between boxes */
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-black fixed w-full z-50">
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
+            <ul class="flex space-x-6 uppercase text-sm">
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/guides" class="nav-link">Guides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="h-64 bg-gradient-to-r from-teal-500 to-gray-700 flex items-center justify-center text-center">
+        <h1 class="text-4xl font-bold text-teal-100">HTML 101: Beginner's Guide</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container bg-gray-900 text-gray-200 rounded-lg shadow-lg p-6 mt-20">
+        <section>
+            <h2 class="text-2xl font-bold text-teal-400">Introduction to HTML</h2>
+            <p>
+                HTML (HyperText Markup Language) is the standard language for creating web pages. It uses a system of tags to structure content on a webpage, such as headings, paragraphs, images, and links.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-teal-400 mt-8">Basic Structure of an HTML Document</h2>
+            <p>Every HTML document follows a specific structure:</p>
+            <div class="code-box">
+                <pre><code>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Webpage</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>Welcome to HTML coding!</p>
+</body>
+</html>
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-teal-400 mt-8">Common HTML Tags</h2>
+            <ul class="list-disc list-inside">
+                <li><strong>&lt;h1&gt; to &lt;h6&gt;:</strong> Define headings, with &lt;h1&gt; as the largest and &lt;h6&gt; as the smallest.</li>
+                <li><strong>&lt;p&gt;:</strong> Represents a paragraph.</li>
+                <li><strong>&lt;a&gt;:</strong> Creates a hyperlink. Example: &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;.</li>
+                <li><strong>&lt;img&gt;:</strong> Embeds an image. Example: &lt;img src="image.jpg" alt="Description"&gt;.</li>
+                <li><strong>&lt;ul&gt; and &lt;li&gt;:</strong> Creates unordered lists with bullet points.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-teal-400 mt-8">Nesting and Indentation</h2>
+            <p>
+                HTML tags can be nested inside one another, but proper indentation is crucial for readability. Here’s an example:
+            </p>
+            <div class="code-box">
+                <pre><code>
+<div>
+    <h1>Main Heading</h1>
+    <p>This is a paragraph inside a &lt;div&gt;.</p>
+</div>
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-teal-400 mt-8">Tips for Writing HTML</h2>
+            <ul class="list-disc list-inside">
+                <li>Always close your tags (e.g., &lt;/p&gt; for paragraphs).</li>
+                <li>Use comments (&lt;!-- Comment --&gt;) to document your code.</li>
+                <li>Validate your HTML with tools like the W3C HTML validator.</li>
+                <li>Stick to semantic tags for better accessibility and SEO (e.g., &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;).</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
