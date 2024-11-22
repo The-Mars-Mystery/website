@@ -91,5 +91,17 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
 
+    /* Remove text-transform for dropdown items */
+.dropdown-menu a {
+    text-transform: none; /* Ensures text appears as written */
+    font-size: 0.9rem; /* Optional: Slightly smaller font size for dropdown items */
+}
+
+/* Optional: Ensure hover styles match the design */
+.dropdown-menu a:hover {
+    background-color: #2d3748; /* Subtle gray background on hover */
+    color: hsl(153, 100%, 63%); /* Matches your accent color */
+}
+
     
 }
