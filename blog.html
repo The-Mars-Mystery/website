@@ -3,75 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - The TechForge HQ</title>
-    <!-- Tailwind CSS -->
+    <title>Blog - TechForge HQ</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/icon.png" type="image/png">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- For Markdown parsing -->
+    <script src="scripts/blog.js" defer></script>
 </head>
 <body class="bg-black text-gray-100">
-
     <!-- Navbar -->
     <nav class="bg-black fixed w-full z-50">
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
             <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
             <ul class="flex space-x-6 uppercase text-sm">
-                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="/blog" class="nav-link">Blog</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-gray-900 text-center fade-in">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-teal-400 mb-4">TechForge Blog</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-                Welcome to the TechForge Blog! Here you'll find the latest articles, tutorials, and news about graphics design and coding. Stay tuned for updates!
-            </p>
-            <!-- Example Blog Post -->
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
-                <h3 class="text-2xl font-bold text-orange-500 mb-2">Latest Post Title</h3>
-                <p class="text-gray-300 mb-4">This is a brief excerpt of the latest blog post. Click the link below to read more.</p>
-                <a href="/post-url" class="text-teal-400 hover:text-orange-500">Read More</a>
-            </div>
-            <!-- Add more blog posts as needed -->
+    <!-- Hero Section -->
+    <header class="py-20 bg-gradient-to-b from-cyan-500 to-gray-700 text-center">
+        <h1 class="text-5xl font-bold text-white">TechForge HQ Blog</h1>
+        <p class="text-lg text-gray-300 mt-4">Explore the latest updates, guides, and insights.</p>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="container mx-auto py-10 px-6">
+        <div class="flex justify-between items-center mb-6">
+            <select id="category-filter" class="bg-gray-800 text-gray-300 py-2 px-4 rounded">
+                <option value="all">All Categories</option>
+                <option value="guides">Guides</option>
+                <option value="templates">Templates</option>
+                <option value="graphics">Graphics</option>
+            </select>
         </div>
-    </section>
+        <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
-            <div class="flex justify-center mt-4 space-x-4">
-                <a href="https://twitter.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
-                <a href="https://facebook.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+        <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
     </footer>
-
-    <!-- Scroll Animation -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const fadeElements = document.querySelectorAll(".fade-in");
-
-            function handleScroll() {
-                fadeElements.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", handleScroll);
-            handleScroll();
-        });
-    </script>
 </body>
 </html>
