@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Getting Started with Graphics Design",
+        "date": "2024-11-22",
+        "description": "Discover how to create stunning designs with our step-by-step guide for beginners.",
+        "category": "design",
+        "link": "/blog/graphics-design"
+    },
+    {
+        "title": "Top 5 Coding Templates for Developers",
+        "date": "2024-11-15",
+        "description": "Speed up your workflow with these essential coding templates.",
+        "category": "coding",
+        "link": "/blog/coding-templates"
+    }
+]
