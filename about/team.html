@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - The TechForge HQ</title>
+    <title>Our Team - The TechForge HQ</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/icon.png" type="image/png">
@@ -53,34 +53,50 @@
                         <a href="/mission" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Mission</a>
                         <a href="/contact" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Contact Us</a>
                     </div>
-                </li>                
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Blog Hero -->
+    <!-- Page Hero -->
     <header class="h-60 bg-gradient-to-br from-teal-500 to-gray-800 flex items-center justify-center">
-        <h1 class="text-4xl font-bold text-gray-100">The TechForge Blog</h1>
+        <h1 class="text-4xl font-bold text-gray-100">Meet Our Team</h1>
     </header>
 
-    <!-- Blog Filters -->
-    <section class="py-6 bg-gray-800">
+    <!-- Team Section -->
+    <section class="py-12 bg-gray-900">
         <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center">
-                <h2 class="text-xl font-semibold text-orange-500">Explore Our Latest Posts</h2>
-                <select id="categoryFilter" class="text-black p-2 rounded">
-                    <option value="all">All Categories</option>
-                    <option value="design">Graphics Design</option>
-                    <option value="coding">Coding Templates</option>
-                </select>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member Card -->
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+                    <img src="assets/TheAwesomeAJ.png" alt="Team Member 1" class="rounded-full w-32 mx-auto mb-4">
+                      <h3 class="text-xl font-bold text-orange-500">TheAwesomeAJ</h3>
+                    <p class="text-sm text-gray-400">Lead Developer/Owner</p>
+                     <p class="mt-2 text-gray-300">
+                          <strong>About Me</strong><br>
+                           🌐 Website Development Student: I'm currently honing my skills in building beautiful, functional websites.<br>
+                          💻 Passionate about coding, design, and bringing ideas to life on the web.<br>
+                             📘 Currently working on a website project, The TechForge HQ.
+                          </p>
+                         <p class="mt-2 text-gray-300">
+                              <strong>Skills</strong><br>
+                                 <strong>Languages:</strong> HTML, CSS, JavaScript<br>
+                                  <strong>Frameworks:</strong> Bootstrap, Tailwind CSS (learning more...)<br>
+                                   <strong>Tools:</strong> Visual Studio Code, Git, GitHub Pages
+                                        </div>
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+                    <img src="assets/member2.jpg" alt="Team Member 2" class="rounded-full w-32 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-orange-500">Jamie Lee</h3>
+                    <p class="text-sm text-gray-400">UI/UX Designer</p>
+                    <p class="mt-2 text-gray-300">Jamie specializes in crafting visually appealing and user-friendly interfaces.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+                    <img src="assets/member3.jpg" alt="Team Member 3" class="rounded-full w-32 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-orange-500">Taylor Smith</h3>
+                    <p class="text-sm text-gray-400">Project Manager</p>
+                    <p class="mt-2 text-gray-300">Taylor ensures the team stays on track and projects are delivered on time.</p>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Blog Posts Section -->
-    <section id="blogPosts" class="py-8 bg-gray-900">
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-            <!-- Posts will load here dynamically -->
         </div>
     </section>
 
@@ -91,8 +107,6 @@
         </div>
     </footer>
 
-    <!-- Script to load blog posts -->
-    <script src="/scripts/blog.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const fadeElements = document.querySelectorAll(".fade-in");
