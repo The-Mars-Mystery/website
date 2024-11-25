@@ -19,10 +19,46 @@
     <nav class="bg-black fixed w-full z-50">
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
             <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
-            <ul class="flex space-x-6 uppercase text-sm">
-                <li><a href="/about" class="nav-link">About</a></li>
-                <li><a href="/blog" class="nav-link">Blog</a></li>
-                <li><a href="/guides" class="nav-link">Guides</a></li>
+            <ul class="flex space-x-6 text-sm">
+                <li class="relative">
+                    <button id="guidesDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        Guides
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="guidesDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/html-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">HTML</a>
+                        <a href="/css-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">CSS</a>
+                        <a href="/javascript-guide" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">JavaScript</a>
+                    </div>
+                </li>
+                <li class="relative">
+                    <button id="blogDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        Blog
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="blogDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/latest-news" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Latest News</a>
+                        <a href="/coding-tips" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Coding Tips</a>
+                        <a href="/project-showcase" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Project Showcase</a>
+                    </div>
+                </li>
+                <li class="relative">
+                    <button id="aboutDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        About
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="aboutDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/team" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Team</a>
+                        <a href="/mission" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Mission</a>
+                        <a href="/contact" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Contact Us</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -69,6 +105,54 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            function handleScroll() {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", handleScroll);
+            handleScroll();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdownButtons = document.querySelectorAll("[id$='DropdownButton']");
+            const dropdownMenus = document.querySelectorAll("[id$='DropdownMenu']");
+    
+            dropdownButtons.forEach((button, index) => {
+                const menu = dropdownMenus[index];
+    
+                // Toggle dropdown menu visibility
+                button.addEventListener("click", () => {
+                    const isHidden = menu.classList.contains("hidden");
+                    if (isHidden) {
+                        menu.classList.remove("hidden", "opacity-0");
+                        menu.classList.add("opacity-100");
+                    } else {
+                        menu.classList.remove("opacity-100");
+                        menu.classList.add("hidden", "opacity-0");
+                    }
+                });
+    
+                // Close dropdown menu when clicking outside
+                document.addEventListener("click", (event) => {
+                    if (!button.contains(event.target)) {
+                        menu.classList.remove("opacity-100");
+                        menu.classList.add("hidden", "opacity-0");
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
