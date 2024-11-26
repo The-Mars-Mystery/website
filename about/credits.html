@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - The TechForge HQ</title>
+    <title>Credits - TechForge HQ</title>
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/icon.png" type="image/png">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .credits-card {
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .credits-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        a:hover {
+            color: #00e0ff; /* Cyan color */
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body>
+
     <!-- Navbar -->
     <nav class="bg-black fixed w-full z-50">
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
@@ -59,41 +82,47 @@
         </div>
     </nav>
 
-    <!-- Blog Hero -->
-    <header class="h-60 bg-gradient-to-br from-teal-500 to-gray-800 flex items-center justify-center">
-        <h1 class="text-4xl font-bold text-gray-100">The TechForge Blog</h1>
-    </header>
+    <!-- Credits Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 py-12">
+        <div class="container max-w-4xl mx-auto credits-card p-8 rounded-lg">
+            <h1 class="text-4xl font-bold text-orange-500 text-center mb-6">Credits</h1>
+            <p class="text-gray-300 text-center mb-8">
+                We want to thank everyone who contributed to the success of TechForge HQ. Here are the amazing individuals and tools that made this possible:
+            </p>
 
-    <!-- Blog Filters -->
-    <section class="py-6 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center">
-                <h2 class="text-xl font-semibold text-orange-500">Explore Our Latest Posts</h2>
-                <select id="categoryFilter" class="text-black p-2 rounded">
-                    <option value="all">All Categories</option>
-                    <option value="design">Graphics Design</option>
-                    <option value="coding">Coding Templates</option>
-                </select>
+            <ul class="space-y-6">
+                <li>
+                    <h3 class="text-lg font-bold text-teal-400">Development Tools</h3>
+                    <p class="text-gray-200">Built with <a href="https://tailwindcss.com/" target="_blank" class="text-teal-400 fade-link">Tailwind CSS</a> and <a href="https://fontawesome.com/" target="_blank" class="text-teal-400 fade-link">Font Awesome</a>.</p>
+                </li>
+                <li>
+                    <h3 class="text-lg font-bold text-teal-400">Graphics</h3>
+                    <p class="text-gray-200">Icons and assets courtesy of <a href="https://www.flaticon.com/" target="_blank" class="text-teal-400 fade-link">Flaticon</a> and <a href="https://unsplash.com/" target="_blank" class="text-teal-400 fade-link">Unsplash</a>.</p>
+                </li>
+                <li>
+                    <h3 class="text-lg font-bold text-teal-400">Special Thanks</h3>
+                    <p class="text-gray-200">Huge thanks to our amazing community and the contributors who continuously support us in improving TechForge HQ.</p>
+                </li>
+                <li>
+                    <h3 class="text-lg font-bold text-teal-400">Development Team</h3>
+                    <p class="text-gray-200">Developed by <span class="text-orange-500">TheAwesomeAJ</span> and the TechForge HQ team.</p>
+                </li>
+            </ul>
+
+            <!-- Back to Home -->
+            <div class="mt-10 text-center">
+                <a href="/" class="button">Back to Home</a>
             </div>
         </div>
     </section>
 
-    <!-- Blog Posts Section -->
-    <section id="blogPosts" class="py-8 bg-gray-900">
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-            <!-- Posts will load here dynamically -->
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 text-center">
+    <footer class="bg-black py-8 text-center">
         <div class="container mx-auto px-4">
             <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Script to load blog posts -->
-    <script src="/scripts/blog.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const fadeElements = document.querySelectorAll(".fade-in");
@@ -115,27 +144,18 @@
         document.addEventListener("DOMContentLoaded", () => {
             const dropdownButtons = document.querySelectorAll("[id$='DropdownButton']");
             const dropdownMenus = document.querySelectorAll("[id$='DropdownMenu']");
-    
             dropdownButtons.forEach((button, index) => {
                 const menu = dropdownMenus[index];
-    
-                // Toggle dropdown menu visibility
                 button.addEventListener("click", () => {
                     const isHidden = menu.classList.contains("hidden");
-                    if (isHidden) {
-                        menu.classList.remove("hidden", "opacity-0");
-                        menu.classList.add("opacity-100");
-                    } else {
-                        menu.classList.remove("opacity-100");
-                        menu.classList.add("hidden", "opacity-0");
-                    }
+                    menu.classList.toggle("hidden", !isHidden);
+                    menu.classList.toggle("opacity-100", isHidden);
+                    menu.classList.toggle("opacity-0", !isHidden);
                 });
-    
-                // Close dropdown menu when clicking outside
                 document.addEventListener("click", (event) => {
                     if (!button.contains(event.target)) {
-                        menu.classList.remove("opacity-100");
                         menu.classList.add("hidden", "opacity-0");
+                        menu.classList.remove("opacity-100");
                     }
                 });
             });
