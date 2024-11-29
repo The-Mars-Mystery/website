@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
 </head>
 <body class="bg-black text-gray-100">
 
@@ -77,42 +76,78 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-900 text-center fade-in">
+    <!-- Guides Carousel Section -->
+    <section id="guides-carousel" class="py-20 bg-gray-900 text-center fade-in">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-teal-400 mb-4">Graphics Design</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto">
-                Looking for some awesome graphics for your website or app? Look no further! Here at the TechForge HQ, we offer a wide range of graphics design services to help you bring your projects to life. Whether you need a logo, banner, or custom illustrations, we've got you covered! Click the button below to learn more.
-            </p>
-            <a href="/coming-soon" class="btn">Graphics</a>
-        </div>
-    </section>
-
-    <!-- Code Section -->
-    <section id="book" class="py-20 bg-black text-center fade-in">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-teal-400 mb-4">Coding Templates and Guides</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-                Here at the TechForge HQ, we provide a wide range of coding templates and guides to help you build your projects from scratch. Whether your project is a website, app, or game, we've got you covered! We offer guides on many coding languages, like JavaScript, HTML, CSS, Python, and more. And if you're just looking for a simple website template, we have those too! Click the buttons below for more information.
-            </p>
-            <a href="/coming-soon" class="btn">Guides</a>
-            <a href="/coming-soon" class="btn">Templates</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-8 text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
-            <div class="flex justify-center mt-4 space-x-4">
-                <a href="https://twitter.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i>Test</a>
-                <a href="https://facebook.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-facebook"></i>Test</a>
-                <a href="https://github.com" class="text-gray-500 hover:text-orange-500"><i class="fab fa-github"></i>Test</a>
+            <h2 class="text-3xl font-bold text-teal-400 mb-4">Explore Our Guides</h2>
+            <div class="relative">
+                <!-- Carousel Wrapper -->
+                <div class="carousel overflow-hidden">
+                    <div class="carousel-inner flex transition-transform duration-500 ease-in-out" id="guidesCarousel">
+                        <div class="carousel-item w-full">
+                            <a href="/coming-soon" class="block px-6 py-4 bg-gray-800 rounded-lg text-gray-300 hover:bg-gray-700">
+                                <h3 class="font-bold text-lg text-teal-400">HTML Guide</h3>
+                                <p>Learn the basics of HTML and how to build a solid foundation for your web projects.</p>
+                            </a>
+                        </div>
+                        <div class="carousel-item w-full">
+                            <a href="/coming-soon" class="block px-6 py-4 bg-gray-800 rounded-lg text-gray-300 hover:bg-gray-700">
+                                <h3 class="font-bold text-lg text-teal-400">CSS Guide</h3>
+                                <p>Master the art of styling websites with CSS, including layouts, animations, and more.</p>
+                            </a>
+                        </div>
+                        <div class="carousel-item w-full">
+                            <a href="/coming-soon" class="block px-6 py-4 bg-gray-800 rounded-lg text-gray-300 hover:bg-gray-700">
+                                <h3 class="font-bold text-lg text-teal-400">JavaScript Guide</h3>
+                                <p>Unlock the power of JavaScript to create dynamic and interactive web experiences.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2">
+                    <button class="text-gray-300 hover:text-orange-500" id="prevBtn">&#8592;</button>
+                </div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2 p-2">
+                    <button class="text-gray-300 hover:text-orange-500" id="nextBtn">&#8594;</button>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Scroll Animation -->
+    <!-- Blogs Carousel Section -->
+    <section id="blogs-carousel" class="py-20 bg-gray-800 text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-400 mb-4">Read Our Blogs</h2>
+            <div class="relative">
+                <!-- Carousel Wrapper -->
+                <div class="carousel overflow-hidden">
+                    <div class="carousel-inner flex transition-transform duration-500 ease-in-out" id="blogsCarousel">
+                        <div class="carousel-item w-full">
+                            <a href="/latest-news" class="block px-6 py-4 bg-gray-900 rounded-lg text-gray-300 hover:bg-gray-700">
+                                <h3 class="font-bold text-lg text-teal-400">Latest News</h3>
+                                <p>Stay updated with the latest trends in web development and tech.</p>
+                            </a>
+                        </div>
+                        <div class="carousel-item w-full">
+                            <a href="/coding-tips" class="block px-6 py-4 bg-gray-900 rounded-lg text-gray-300 hover:bg-gray-700">
+                                <h3 class="font-bold text-lg text-teal-400">Coding Tips</h3>
+                                <p>Helpful tips to improve your coding skills and become a better developer.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2">
+                    <button class="text-gray-300 hover:text-orange-500" id="prevBtnBlog">&#8592;</button>
+                </div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2 p-2">
+                    <button class="text-gray-300 hover:text-orange-500" id="nextBtnBlog">&#8594;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const fadeElements = document.querySelectorAll(".fade-in");
@@ -160,5 +195,6 @@
             });
         });
     </script>    
+
 </body>
 </html>
