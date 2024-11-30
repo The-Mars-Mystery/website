@@ -12,52 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            font-family: 'Montserrat', sans-serif;
-        }
-        .contact-card {
-            background: rgba(0, 0, 0, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-            color: rgba(255, 255, 255, 0.9);
-        }
-        .contact-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-        a:hover {
-            color: #00e0ff; /* Cyan color */
-        }
-        .fade-link {
-            transition: opacity 0.3s ease, color 0.3s ease;
-        }
-        .fade-link:hover {
-            opacity: 0.7;
-        }
-        .social-icons a {
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-icons a:hover {
-            transform: scale(1.2);
-            color: #00e0ff; /* Cyan hover color */
-        }
-        .button {
-            background: linear-gradient(90deg, #013b4d, #00272c); /* Cyan gradient */
-            padding: 10px 20px;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .button:focus {
-            outline: none;
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -65,6 +19,7 @@
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
             <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
             <ul class="flex space-x-6 text-sm">
+                <li><a href="/" class="nav-link">Home</a></li>
                 <li class="relative">
                     <button id="guidesDropdownButton" class="nav-link flex items-center focus:outline-none">
                         Guides
@@ -72,47 +27,22 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <div id="guidesDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
-                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">HTML</a>
-                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">CSS</a>
-                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">JavaScript</a>
+                    <div id="guidesDropdownMenu" class="dropdown-menu hidden">
+                        <a href="/coming-soon" class="block px-4 py-2">HTML</a>
+                        <a href="/coming-soon" class="block px-4 py-2">CSS</a>
+                        <a href="/coming-soon" class="block px-4 py-2">JavaScript</a>
                     </div>
                 </li>
-                <li class="relative">
-                    <button id="blogDropdownButton" class="nav-link flex items-center focus:outline-none">
-                        Blog
-                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div id="blogDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
-                        <a href="/latest-news" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Latest News</a>
-                        <a href="/coding-tips" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Coding Tips</a>
-                        <a href="/blog" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Blog Home Page</a>
-                    </div>
-                </li>
-                <li class="relative">
-                    <button id="aboutDropdownButton" class="nav-link flex items-center focus:outline-none">
-                        About
-                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div id="aboutDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
-                        <a href="/about/team" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Team</a>
-                        <a href="/about/mission" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Mission</a>
-                        <a href="/about/credits" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Credits</a>
-                        <a href="/about/contact" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Contact Us</a>
-                    </div>
-                </li>                
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/about/contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Contact Us Section -->
     <section class="min-h-screen flex items-center justify-center px-6 py-12">
-        <div class="container max-w-4xl mx-auto contact-card p-8 rounded-lg">
-            <h1 class="text-4xl font-bold text-orange-500 text-center mb-6">Contact Us</h1>
+        <div class="container max-w-4xl mx-auto p-8 rounded-lg bg-gray-900 shadow-lg">
+            <h1 class="text-4xl font-bold text-cyan-500 text-center mb-6">Contact Us</h1>
             <p class="text-gray-300 text-center mb-8">We’d love to hear from you! Reach out through any of the options below.</p>
             
             <div class="text-center space-y-6">
@@ -127,32 +57,32 @@
                 <!-- Social Media Links -->
                 <div>
                     <p class="text-lg text-gray-200">Follow us on social media:</p>
-                    <div class="social-icons flex justify-center mt-4 space-x-6">
+                    <div class="flex justify-center mt-4 space-x-6">
                         <a href="https://github.com/TheAwesomeAJ" target="_blank" class="text-gray-300 hover:text-cyan-400 text-3xl">
-                            <i class="fab fa-github">GitHub</i>
+                            <i class="fab fa-github"></i>
                         </a>
                         <a href="https://gitlab.com/TheAwesomeAJ" target="_blank" class="text-gray-300 hover:text-cyan-400 text-3xl">
-                            <i class="fab fa-gitlab">GitLab</i>
+                            <i class="fab fa-gitlab"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Contact Form Button -->
+            <!-- Contact Form -->
             <div class="mt-10 text-center">
-                <div data-fillout-id="7u3EWQ9xESus" data-fillout-embed-type="popup" data-fillout-button-text="Contact Form" data-fillout-dynamic-resize data-fillout-button-color="#33BACD" data-fillout-button-size="large" data-fillout-inherit-parameters data-fillout-popup-size="large"></div>
+                <div data-fillout-id="7u3EWQ9xESus" data-fillout-embed-type="popup" data-fillout-button-text="Contact Form" data-fillout-dynamic-resize></div>
                 <script src="https://server.fillout.com/embed/v1/"></script>
             </div>
 
             <!-- Back to Home -->
             <div class="mt-10 text-center">
-                <a href="/" class="button">Back to Home</a>
+                <a href="/" class="btn">Back to Home</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-8 text-center">
+    <footer class="bg-black py-6 text-center">
         <div class="container mx-auto px-4">
             <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
         </div>
@@ -166,16 +96,10 @@
             dropdownButtons.forEach((button, index) => {
                 const menu = dropdownMenus[index];
                 button.addEventListener("click", () => {
-                    const isHidden = menu.classList.contains("hidden");
-                    menu.classList.toggle("hidden", !isHidden);
-                    menu.classList.toggle("opacity-100", isHidden);
-                    menu.classList.toggle("opacity-0", !isHidden);
+                    menu.classList.toggle("hidden");
                 });
                 document.addEventListener("click", (event) => {
-                    if (!button.contains(event.target)) {
-                        menu.classList.add("hidden", "opacity-0");
-                        menu.classList.remove("opacity-100");
-                    }
+                    if (!button.contains(event.target)) menu.classList.add("hidden");
                 });
             });
         });

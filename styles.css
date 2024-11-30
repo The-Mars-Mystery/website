@@ -1,107 +1,125 @@
 /* General Styling */
 body {
     font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark background for the whole page */
+    background-color: #000; /* Black background */
+    color: #d1d5db; /* Light gray text */
+    scroll-behavior: smooth;
+}
 
-/* Navbar Links */
-.nav-link {
+/* Navbar Styling */
+nav {
+    background: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav .nav-link {
+    color: #d1d5db;
+    margin: 0 1rem;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #00ffdd; /* Highlight color on hover */
+nav .nav-link:hover {
+    color: #f97316; /* Orange accent */
 }
 
-/* Hero Section - Gradient Background */
+/* Dropdown Menus */
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    margin-top: 0.5rem;
+    background: #1f2937;
+    color: #d1d5db;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #d1d5db;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #f97316;
+    color: #fff;
+}
+
+/* Hero Section */
 header {
-    height: 100vh; /* Full screen */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #00bcd4, #607d8b); /* Cyan to gray gradient */
     text-align: center;
-    color: white;
+    height: 100vh;
+    background: linear-gradient(to bottom, #00bcd4, #607d8b);
+    position: relative;
+    color: #fff;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header h1,
+header p,
+header a {
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #00bcd4; /* Cyan text for the title */
+    font-size: 2.5rem;
+    color: #00bcd4;
 }
 
 header p {
-    font-size: 1.25rem;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #cfd8dc; /* Lighter gray for the text */
+    max-width: 600px;
+    margin: 1rem auto;
+    color: #cfd8dc;
 }
 
-header .btn {
-    background: #00bcd4; /* Cyan button */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 20px;
-}
-
-header .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(0, 188, 212, 0.4);
-}
-
-/* Main Button Styling */
+/* Button Styling */
 .btn {
-    background: linear-gradient(90deg, #00bcd4, #607d8b); /* Cyan to gray gradient */
+    background: linear-gradient(90deg, #00bcd4, #607d8b);
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
     color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(0, 188, 212, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
 }
 
-/* Scroll Animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Typography */
-h1 {
-    margin-bottom: 16px;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Dropdown Menu Styling */
-.dropdown-menu a {
-    text-transform: none; /* Removes the all-caps style */
-    /* Optional: Adjust font size for dropdown */
-    font-size: 0.9rem;
-}
-
-.dropdown-menu a:hover {
-    background-color: #2d3748; /* Subtle background on hover */
-    color: #43ffca; /* Accent color for hover text */
-}
-
-    
+/* Footer */
+footer {
+    background: #1f2937;
+    color: #9ca3af;
+    text-align: center;
+    padding: 1rem;
 }
