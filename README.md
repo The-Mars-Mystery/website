@@ -40,3 +40,7 @@ We can’t wait to see what you’ll create with TechForge HQ.
 Whether you’re here to explore, learn, or level up, we’re excited to be part of your journey. So, go ahead—dive in and let’s forge something incredible together!  
 
 Visit us anytime at **[thetechforgehq.netlify.app](https://thetechforgehq.netlify.app)**.
+
+## Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a73c3af-acc9-49bf-829b-57090bcc478f/deploy-status)](https://app.netlify.com/sites/thetechforgehq/deploys)
