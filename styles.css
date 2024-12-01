@@ -122,4 +122,45 @@ footer {
     color: #9ca3af;
     text-align: center;
     padding: 1rem;
+
+    /* Social Media Button Styling */
+.social-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #fff;
+    background-color: #333;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+}
+
+.github-button {
+    background-color: #333; /* GitHub dark gray */
+}
+
+.gitlab-button {
+    background-color: #fc6d26; /* GitLab orange */
+}
+
+.dribbble-button {
+    background-color: #ea4c89; /* Dribbble pink */
+}
+
+.devart-button {
+    background-color: #2c2f39; /* devart.bio dark gray */
+}
+
+.social-button i {
+    color: #fff; /* White icon */
+}
+
 }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The TechForge HQ</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-black fixed w-full z-50 shadow-md">
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
+            <ul class="flex space-x-6 text-sm">
+                <li><a href="#about" class="hover:text-teal-400 transition">About</a></li>
+                <li><a href="#services" class="hover:text-teal-400 transition">Services</a></li>
+                <li><a href="#blog" class="hover:text-teal-400 transition">Blog</a></li>
+                <li><a href="#contact" class="hover:text-teal-400 transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <header class="relative w-full h-screen bg-cover bg-center" style="background-image: url('assets/hero-bg.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-center text-white z-10 w-full">
+            <h1 class="text-5xl font-bold mb-6">Welcome to The TechForge HQ</h1>
+            <p class="text-xl mb-8">Design, code, and innovate with the best tools and resources. Let’s create something amazing together!</p>
+            <a href="#services" class="bg-teal-400 text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-teal-500 transition">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Carousel Section -->
+    <section id="carousel" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-teal-400 mb-8">What We Offer</h2>
+            <div class="relative w-full">
+                <!-- Carousel Wrapper -->
+                <div class="carousel flex overflow-hidden space-x-4">
+    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+        <img src="assets/graphic-design.jpeg" alt="Graphic Design" class="w-full h-2/3 object-cover rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold text-teal-400">Graphic Design</h3>
+            <p class="text-gray-300">Need custom graphics for your website or app? We’ve got you covered!</p>
+        </div>
+    </div>
+    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+        <img src="assets/coding-templates.jpeg" alt="Coding Guides" class="w-full h-2/3 object-cover rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold text-teal-400">Coding Templates & Guides</h3>
+            <p class="text-gray-300">Explore our coding templates and guides to jumpstart your projects!</p>
+        </div>
+    </div>
+    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+        <img src="assets/web-development.jpeg" alt="Web Development" class="w-full h-2/3 object-cover rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold text-teal-400">Web Development</h3>
+            <p class="text-gray-300">Get professional web development services to bring your ideas to life!</p>
+        </div>
+    </div>
+</div>
+
+                <!-- Carousel Controls -->
+                <div class="flex justify-center mt-4 space-x-2">
+                    <button class="bg-teal-400 text-black rounded-full p-2 hover:bg-teal-500 transition">←</button>
+                    <button class="bg-teal-400 text-black rounded-full p-2 hover:bg-teal-500 transition">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-400 mb-6">Who We Are</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+                At TechForge HQ, we're passionate about empowering creators with the best resources for web design, development, and graphics. Whether you're building a website or launching a product, we provide you with everything you need to succeed.
+            </p>
+            <a href="/about" class="bg-teal-400 text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-teal-500 transition">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-teal-400 mb-8">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 text-white rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold text-teal-400 mb-4">Custom Web Design</h3>
+                    <p>Get a website tailored to your brand, ensuring it stands out from the competition.</p>
+                </div>
+                <div class="bg-gray-800 text-white rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold text-teal-400 mb-4">Development & Coding</h3>
+                    <p>We offer coding services for both front-end and back-end development to bring your ideas to life.</p>
+                </div>
+                <div class="bg-gray-800 text-white rounded-lg p-6">
+                    <h3 class="text-2xl font-semibold text-teal-400 mb-4">Graphic Design</h3>
+                    <p>Create stunning visuals for your projects with our expert graphic design services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-sm text-gray-500">&copy; 2024 ● TheAwesomeAJ ● All rights reserved.</p>
+            <div class="flex justify-center mt-4 space-x-4">
+                <a href="https://github.com" class="text-teal-400 hover:text-teal-500 transition">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://gitlab.com" class="text-teal-400 hover:text-teal-500 transition">
+                    <i class="fab fa-gitlab"></i>
+                </a>
+                <a href="https://dribbble.com" class="text-teal-400 hover:text-teal-500 transition">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+                <a href="https://devart.bio" class="text-teal-400 hover:text-teal-500 transition">
+                    <i class="fab fa-dev"></i>
+                </a>                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carousel Script -->
+    <script>
+        const prevButton = document.querySelector('.carousel .bg-teal-400');
+        const nextButton = document.querySelector('.carousel .bg-teal-400');
+
+        prevButton.addEventListener('click', () => {
+            document.querySelector('.carousel').scrollBy({
+                left: -320,
+                behavior: 'smooth'
+            });
+        });
+
+        nextButton.addEventListener('click', () => {
+            document.querySelector('.carousel').scrollBy({
+                left: 320,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
