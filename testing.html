@@ -17,14 +17,50 @@
 <body class="bg-black text-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-black fixed w-full z-50 shadow-md">
+    <nav class="bg-black fixed w-full z-50">
         <div class="container mx-auto flex items-center justify-between py-4 px-6">
             <a href="/" class="text-2xl font-bold text-orange-500">TechForge HQ</a>
             <ul class="flex space-x-6 text-sm">
-                <li><a href="#about" class="hover:text-teal-400 transition">About</a></li>
-                <li><a href="#services" class="hover:text-teal-400 transition">Services</a></li>
-                <li><a href="#blog" class="hover:text-teal-400 transition">Blog</a></li>
-                <li><a href="#contact" class="hover:text-teal-400 transition">Contact</a></li>
+                <li class="relative">
+                    <button id="guidesDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        Guides
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="guidesDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">HTML</a>
+                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">CSS</a>
+                        <a href="/coming-soon" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">JavaScript</a>
+                    </div>
+                </li>
+                <li class="relative">
+                    <button id="blogDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        Blog
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="blogDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/latest-news" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Latest News</a>
+                        <a href="/coding-tips" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Coding Tips</a>
+                        <a href="/blog" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Blog Home Page</a>
+                    </div>
+                </li>
+                <li class="relative">
+                    <button id="aboutDropdownButton" class="nav-link flex items-center focus:outline-none">
+                        About
+                        <svg class="w-4 h-4 ml-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="aboutDropdownMenu" class="absolute left-0 hidden w-40 bg-gray-900 text-gray-300 rounded-lg shadow-lg mt-2 z-50 opacity-0 transition-opacity duration-300">
+                        <a href="/about/team" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Team</a>
+                        <a href="/about/mission" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Our Mission</a>
+                        <a href="/about/credits" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Credits</a>
+                        <a href="/about/contact" class="block px-4 py-2 hover:bg-gray-800 hover:text-orange-500">Contact Us</a>
+                    </div>
+                </li>                
             </ul>
         </div>
     </nav>
@@ -39,35 +75,38 @@
         </div>
     </header>
 
+    <!-- Line Divider between Hero and Services -->
+    <hr class="my-8 border-t-2 border-teal-400 mx-auto w-1/2">
+
     <!-- Carousel Section -->
     <section id="carousel" class="py-20">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center text-teal-400 mb-8">What We Offer</h2>
             <div class="relative w-full">
                 <!-- Carousel Wrapper -->
-                <div class="carousel flex overflow-hidden space-x-4">
-    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
-        <img src="assets/graphic-design.jpeg" alt="Graphic Design" class="w-full h-2/3 object-cover rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-xl font-semibold text-teal-400">Graphic Design</h3>
-            <p class="text-gray-300">Need custom graphics for your website or app? We’ve got you covered!</p>
-        </div>
-    </div>
-    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
-        <img src="assets/coding-templates.jpeg" alt="Coding Guides" class="w-full h-2/3 object-cover rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-xl font-semibold text-teal-400">Coding Templates & Guides</h3>
-            <p class="text-gray-300">Explore our coding templates and guides to jumpstart your projects!</p>
-        </div>
-    </div>
-    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
-        <img src="assets/web-development.jpeg" alt="Web Development" class="w-full h-2/3 object-cover rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-xl font-semibold text-teal-400">Web Development</h3>
-            <p class="text-gray-300">Get professional web development services to bring your ideas to life!</p>
-        </div>
-    </div>
-</div>
+                <div class="carousel flex justify-center overflow-hidden space-x-4">
+                    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+                        <img src="https://res.cloudinary.com/dzhiryj8n/image/upload/v1733015491/graphic_design_bnx3sm.jpg" alt="Graphic Design" class="w-full h-2/3 object-cover rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold text-teal-400">Graphic Design</h3>
+                            <p class="text-gray-300">Need custom graphics for your website or app? We’ve got you covered!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+                        <img src="https://res.cloudinary.com/dzhiryj8n/image/upload/v1733015492/coding_templates_s7krkt.jpg" alt="Coding Guides" class="w-full h-2/3 object-cover rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold text-teal-400">Coding Templates & Guides</h3>
+                            <p class="text-gray-300">Explore our coding templates and guides to jumpstart your projects!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item flex-shrink-0 w-80 h-96 bg-gray-800 rounded-lg shadow-xl">
+                        <img src="https://res.cloudinary.com/dzhiryj8n/image/upload/v1733015492/web_development_aafrvw.jpg" alt="Web Development" class="w-full h-2/3 object-cover rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold text-teal-400">Web Development</h3>
+                            <p class="text-gray-300">Get professional web development services to bring your ideas to life!</p>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Carousel Controls -->
                 <div class="flex justify-center mt-4 space-x-2">
@@ -126,29 +165,58 @@
                 </a>
                 <a href="https://devart.bio" class="text-teal-400 hover:text-teal-500 transition">
                     <i class="fab fa-dev"></i>
-                </a>                
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Carousel Script -->
+    <!-- Scroll Animation -->
     <script>
-        const prevButton = document.querySelector('.carousel .bg-teal-400');
-        const nextButton = document.querySelector('.carousel .bg-teal-400');
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
 
-        prevButton.addEventListener('click', () => {
-            document.querySelector('.carousel').scrollBy({
-                left: -320,
-                behavior: 'smooth'
-            });
-        });
+            function handleScroll() {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
 
-        nextButton.addEventListener('click', () => {
-            document.querySelector('.carousel').scrollBy({
-                left: 320,
-                behavior: 'smooth'
-            });
+            window.addEventListener("scroll", handleScroll);
+            handleScroll();
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdownButtons = document.querySelectorAll("[id$='DropdownButton']");
+            const dropdownMenus = document.querySelectorAll("[id$='DropdownMenu']");
+    
+            dropdownButtons.forEach((button, index) => {
+                const menu = dropdownMenus[index];
+    
+                // Toggle dropdown menu visibility
+                button.addEventListener("click", () => {
+                    const isHidden = menu.classList.contains("hidden");
+                    if (isHidden) {
+                        menu.classList.remove("hidden", "opacity-0");
+                        menu.classList.add("opacity-100");
+                    } else {
+                        menu.classList.add("hidden", "opacity-0");
+                        menu.classList.remove("opacity-100");
+                    }
+                });
+    
+                // Close the dropdown if clicked outside
+                document.addEventListener("click", (e) => {
+                    if (!button.contains(e.target) && !menu.contains(e.target)) {
+                        menu.classList.add("hidden", "opacity-0");
+                        menu.classList.remove("opacity-100");
+                    }
+                });
+            });
+        });
+    </script>    
 </body>
 </html>
